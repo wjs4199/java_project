@@ -1,0 +1,151 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
+
+public class Example {
+
+
+	public static void main(String[] args) {
+		
+		Dimension dim=new Dimension(400,400);
+		JFrame frame=new JFrame("The Rabbit and Tiger");	//창 이름 설정
+		frame.setLocation(300, 400);	//창 위치 설정
+		frame.setPreferredSize(dim);	//창 크기 설정
+		
+		
+		
+		
+		PlayPanelImage playImage=new PlayPanelImage();
+		
+		
+		JPanel playPanel1=new JPanel();
+		
+		JButton playButton=new JButton("Power");
+		playButton.setBackground(Color.ORANGE);
+		playButton.setForeground(Color.CYAN);
+		playButton.setFont(new Font("Helvetica",Font.BOLD,25));
+		playButton.setHorizontalAlignment(SwingConstants.CENTER);
+		playButton.setVerticalAlignment(SwingConstants.CENTER);
+		playButton.setSize(200, 60);
+		playButton.setPreferredSize(null);	//버튼 정보 설정
+		
+		playPanel1.add(playButton);
+		playPanel1.add(playImage);
+		frame.add(playPanel1);
+		playPanel1.setVisible(true);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		StartPanelImage startImage=new StartPanelImage();
+		frame.add(startImage);
+		startImage.setVisible(true);
+		//startImage.setVisible(true);	//이미지를 넣기 위해서는 따로 패널을 상속받아서 생성해야해서 StartPanelPage 패널 생성
+		
+		JPanel startButtonPanel1=new JPanel();
+		startButtonPanel1.setLayout(new BoxLayout(startButtonPanel1,BoxLayout.X_AXIS));	//start버튼 넣을 패널 생성
+		JPanel startButtonPanel2=new JPanel();
+		startButtonPanel2.setLayout(new BoxLayout(startButtonPanel2,BoxLayout.X_AXIS));	//rank버튼 넣을 패널 생성
+		JPanel startButtonPanel3=new JPanel();
+		startButtonPanel3.setLayout(new BoxLayout(startButtonPanel3,BoxLayout.X_AXIS));	//quit버튼 넣을 패널 생성
+		JPanel startButtonPanel4=new JPanel();
+		startButtonPanel4.setLayout(new BoxLayout(startButtonPanel4,BoxLayout.X_AXIS));	//버튼들 합치는 패널 생성
+
+		
+		JButton startPageButton1=new JButton("Start");
+		startPageButton1.setBackground(Color.gray);
+		startPageButton1.setForeground(Color.WHITE);
+		startPageButton1.setFont(new Font("Helvetica",Font.PLAIN,15));
+		startPageButton1.setHorizontalAlignment(SwingConstants.CENTER);
+		startPageButton1.setVerticalAlignment(SwingConstants.CENTER);
+		startPageButton1.setSize(180, 40);
+		//startPageButton1.setPreferredSize(null);	//버튼 정보 설정
+		
+		JButton startPageButton2=new JButton("Rank");
+		startPageButton2.setBackground(Color.gray);
+		startPageButton2.setForeground(Color.WHITE);
+		startPageButton2.setFont(new Font("Helvetica",Font.PLAIN,15));
+		startPageButton2.setHorizontalAlignment(SwingConstants.CENTER);
+		startPageButton2.setVerticalAlignment(SwingConstants.CENTER);
+		startPageButton2.setSize(180, 40);
+		//startPageButton2.setPreferredSize(null);	//버튼 정보 설정
+		
+		JButton startPageButton3=new JButton("Quit");
+		startPageButton3.setBackground(Color.gray);
+		startPageButton3.setForeground(Color.WHITE);
+		startPageButton3.setFont(new Font("Helvetica",Font.PLAIN,15));
+		startPageButton3.setHorizontalAlignment(SwingConstants.CENTER);
+		startPageButton3.setVerticalAlignment(SwingConstants.CENTER);
+		startPageButton3.setSize(180, 40);
+		//startPageButton3.setPreferredSize(null);	//버튼 정보 설정
+		
+		
+		
+		ActionListener startListener=new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				startImage.setVisible(false);
+				startButtonPanel4.setVisible(false);
+				playPanel1.setVisible(true);
+				playImage.setVisible(true);
+			}
+		};
+		
+		startPageButton1.addActionListener(startListener);	//버튼을 눌렀을 경우 frame에서 안보이게 설정
+		
+		startButtonPanel4.add(startPageButton1,BorderLayout.WEST);
+		startButtonPanel4.add(startPageButton2,BorderLayout.CENTER);
+		startButtonPanel4.add(startPageButton3,BorderLayout.EAST);
+		
+		frame.add(startButtonPanel4,BorderLayout.SOUTH);				//프레임에 패널추가
+		startButtonPanel4.setVisible(true);	//버튼 추가하기
+		
+
+		
+		frame.pack();
+		frame.setVisible(true);
+
+	}
+}
+
+class PlayPanelImage extends JPanel{
+	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.drawRect(0, 70, 400, 330);
+		Font font=new Font("Helvetica",Font.BOLD,20);
+		g.setFont(font);;
+		g.drawString("Java Final Project", 40, 40);
+		g.drawLine(0, 70, 400, 70);
+		
+		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\moonkey\\Desktop\\Java\\Image\\1.jpg");
+		g.drawImage(img,0,0,this);
+	}
+}
+class StartPanelImage extends JPanel{
+	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		
+		Font font=new Font("Helvetica",Font.BOLD,20);
+		g.setFont(font);;
+		g.drawString("Java Final Project", 40, 40);
+		g.drawString("The Rabbit and Tiger", 40, 80);
+		g.drawLine(0, 70, 400, 120);
+		
+		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\moonkey\\Desktop\\Java\\Image\\1.jpg");
+		g.drawImage(img,0,0,this);
+	}
+}
