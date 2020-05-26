@@ -18,7 +18,7 @@ public class Player {
 		return name;
 	}
 	
-	public void setName(int playerscore, int i) {
+	public void setScore(int playerscore, int i) {
 		score[i]=playerscore;
 	}
 	
