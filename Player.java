@@ -1,39 +1,61 @@
-package team_project;
 import java.util.Scanner;
 
 public class Player {
-	private static int hp;
-	private static String name;
-	private static int[] score = new int[10];
+	private int hp;
+	private String name;
+	private int round;
+	private int[] score_arr = new int[10];
 	
 	public Player() {
-		hp=50;
-		name="NULL";
-		for (int i=0;i<10;i++) {
-			score[i]=0;
-		}
+		hp =50;
+		name = "NULL";
 	}
-	public static void set_player() {
+	
+	public void set_playerNAME() {
 		Scanner sc = new Scanner(System.in);
+		System.out.print("Please input your Name: ");
 		name=sc.next();
-		for (int i=0;i<10;i++) {
-			score[i]=0;
-		}
 	}
-	public static void set_hp(int num) {
-		hp=num;
+	public String get_NAME() {
+		return name;
 	}
-	public static void set_name(String input) {
-		name=input;
+	public int get_SCORE(int i) {
+		return score_arr[i];
 	}
+	
 	public int sum_score() {
-		int sum=0;
-		for (int i=0;i<10;i++) {
-			sum+=score[i];
+		int sum =0;
+		for(int score : score_arr) {
+			sum += score;
 		}
 		return sum;
 	}
-	public double average_score() {
-		return this.sum_score()/10.0;
+	
+	public void run() {
+		Gravity gravity = new Gravity();
+		Wind wind = new Wind();
+		Power power = new Power();
+		Angle angle = new Angle();
+		Scanner sc = new Scanner(System.in);
+		//System.out.print("Wind speed: "+wind.get_speed()+" Wind direction: "+wind.get_direction());
+		wind.print_wind();
+		//angle.set(sc.nextDouble(),sc.nextDouble());
+		angle.set(3,0);
+		
+		Target target = new Target();
+		Arrow arrow = new Arrow(gravity, wind, power, angle);
+				
+		int x;
+		double real_x, real_y, real_z;
+		do {
+			real_x = arrow.fx();
+			real_y = arrow.fy();
+			real_z = arrow.fz();
+			x = (int)Math.floor(real_x);
+		}while(x!=100);
+		System.out.printf("(x,y,z): (%.2f, %.2f, %.2f)\n",real_x,real_y,real_z);
+		
+		score_arr[round++] =target.decide_score(real_y, real_z);
 	}
+
 }

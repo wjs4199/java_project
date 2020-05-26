@@ -7,7 +7,10 @@ public class Gravity extends Variable{ //변인1, 중력가속도는 항상 일�
 	}
 	public void set() {
 	}
-	public double get() {
+	public Gravity get() {
+		return this;
+	}
+	public double get_gravity() {
 		return GRAVITY_ACCEL;
 	}
 }
