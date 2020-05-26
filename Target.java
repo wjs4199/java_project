@@ -1,17 +1,23 @@
 
 public class Target {
+	private Crowd crowd;
 	private static int TARGET_X;
 	private static int TARGET_HEIGHT;
 	private static int TARGET_MID;
+	private static int TARGET_WIDTH;
 	
 	public Target() {
+		crowd = new Crowd();
 		TARGET_X = 100;
 		TARGET_HEIGHT = 2;
 		TARGET_MID = TARGET_HEIGHT/2;
+		TARGET_WIDTH = 2;
 	}
 	
-	public int decide_score(double y){
-		double delta = Math.abs(y - TARGET_MID);
+	public int decide_score(double y, double z){
+		//double delta = Math.abs(z - TARGET_MID);
+		System.out.printf("Noise level: %.2f\n",crowd.get_noiselevel());
+		double delta = Math.sqrt((y-0)*(y-0)+(z-1)*(z-1))+crowd.get_noiselevel()/100;
 		
 		if(delta <= 0.1) return 10;
 		else if(delta <= 0.2) return 9;
