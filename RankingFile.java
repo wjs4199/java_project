@@ -46,11 +46,11 @@ class RankingFile {
 			System.exit(0); 
 		} 
 		while(inputStream.hasNextLine()){
-		      String line=inputStream.nextLine();
-		      String[] history=new String[3];
-		      history = line.split(":");
-      		      File1 temp=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));
-      		      filedata.add(temp);
+		    String line=inputStream.nextLine();
+		    String[] history=new String[3];
+		    history = line.split(":");
+      		    File1 temp=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));
+      		    filedata.add(temp);
     		} 
 		inputStream.close(); 
 	}
@@ -76,19 +76,19 @@ class RankingFile {
 		File1 temp;
 		if(check1==false) {
 		      if(p1.is_win(p2)==1){
-			temp=new File1(0,p1.get_NAME(),1);
+		    	  temp=new File1(0,p1.get_NAME(),1);
 		      }
 		      else{
-			temp=new File1(0,p1.get_NAME(),0);
+		    	  temp=new File1(0,p1.get_NAME(),0);
 		      }
 		      filedata.add(temp);
 		}
 		if(check2==false) {
 		      if(p1.is_win(p2)==-1){
-			temp=new File1(0,p2.get_NAME(),1);
+		    	  temp=new File1(0,p2.get_NAME(),1);
 		      }
 		      else{
-			temp=new File1(0,p2.get_NAME(),0);
+		    	  temp=new File1(0,p2.get_NAME(),0);
 		      }
 		      filedata.add(temp);
 		}
@@ -117,16 +117,16 @@ class RankingFile {
 		}
 		int ranking_update=1;
 		for(int k=0;k<filedata.size();k++) {
-		      if(k!=0){
-			if(filedata.get(k).getWin_number()==filedata.get(k-1).getWin_number()) { 
-				filedata.get(k).setRanking(filedata.get(k-1).getRanking());
-			}
-			else{
-				filedata.get(k).setRanking(ranking_update++);}
-			}
-		      else{
-			filedata.get(k).setRanking(ranking_update++);
-		      }
+			if(k!=0){
+				if(filedata.get(k).getWin_number()==filedata.get(k-1).getWin_number()) { 
+					filedata.get(k).setRanking(filedata.get(k-1).getRanking());
+				}
+				else{
+					filedata.get(k).setRanking(ranking_update++);}
+				}
+		    else{
+		    	filedata.get(k).setRanking(ranking_update++);
+		    }
 		}
 	}
   
@@ -136,10 +136,11 @@ class RankingFile {
 		load();
 		update_players(p1, p2);
 		sort_ranking(0, filedata.size()-1);
-		System.out.println("===============Ranking==============");
-		System.out.println("Ranking    Player name    Win");
+		System.out.println("===============Ranking==============="); //37
+		System.out.println("Ranking        Player name        Win"); // 7 11 3
 		for(int i=0;i<10;i++) {
-			System.out.println("  "+filedata.get(i).getRanking()+"위         "+filedata.get(i).getName()+"       "+filedata.get(i).getWin_number());
+			System.out.printf("%7d        %11s        %3d\n", filedata.get(i).getRanking(), filedata.get(i).getName(), filedata.get(i).getWin_number());
+			//System.out.println("  "+filedata.get(i).getRanking()+"위         "+filedata.get(i).getName()+"       "+filedata.get(i).getWin_number());
 		}
 		save();
 	}

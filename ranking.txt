@@ -6,5 +6,9 @@
 6:eeeee:11
 6:hhhhh:11
 6:bbbbb:11
-7:fffff:2
-8:eunye:1
+7:Chan1:6
+8:fffff:2
+8:a:2
+9:eunye:1
+10:Chan2:0
+10:b:0
