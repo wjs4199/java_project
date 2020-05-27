@@ -11,10 +11,10 @@ class RankingFile {
 	private static String DATA_FILE= "ranking.txt";
 	private ArrayList<File1> filedata;
 
-  //Constructor
-  public RankingFile(){
-    filedata=new ArrayList<>();
-  }
+	//Constructor
+	public RankingFile(){
+		filedata=new ArrayList<>();
+	}
   
 	//Save updated game ranking history
 	public void save() {
@@ -46,12 +46,12 @@ class RankingFile {
 			System.exit(0); 
 		} 
 		while(inputStream.hasNextLine()){
-      String line=inputStream.nextLine();
-      String[] history=new String[3];
-			history = line.split(":");
-      File1 temp=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));
-      filedata.add(temp);
-    } 
+		      String line=inputStream.nextLine();
+		      String[] history=new String[3];
+		      history = line.split(":");
+      		      File1 temp=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));
+      		      filedata.add(temp);
+    		} 
 		inputStream.close(); 
 	}
 
@@ -75,24 +75,24 @@ class RankingFile {
 		}
 		File1 temp;
 		if(check1==false) {
-      if(p1.is_win(p2)==1){
-        temp=new File1(0,p1.get_NAME(),1);
-      }
-      else{
-        temp=new File1(0,p1.get_NAME(),0);
-      }
-			filedata.add(temp);
+		      if(p1.is_win(p2)==1){
+			temp=new File1(0,p1.get_NAME(),1);
+		      }
+		      else{
+			temp=new File1(0,p1.get_NAME(),0);
+		      }
+		      filedata.add(temp);
 		}
 		if(check2==false) {
-			if(p1.is_win(p2)==-1){
-        temp=new File1(0,p2.get_NAME(),1);
-      }
-      else{
-        temp=new File1(0,p2.get_NAME(),0);
-      }
-			filedata.add(temp);
+		      if(p1.is_win(p2)==-1){
+			temp=new File1(0,p2.get_NAME(),1);
+		      }
+		      else{
+			temp=new File1(0,p2.get_NAME(),0);
+		      }
+		      filedata.add(temp);
 		}
-  }  
+  	}  
 	
 	//Update ranking numbers based on number of wins
 	public void sort_ranking(int left, int right) { 
@@ -107,25 +107,26 @@ class RankingFile {
 			   do j--; 
 			   while(j  > left  && filedata.get(j).getWin_number() < pivot); 
 			   if(i<j) {
-           Collections.swap(filedata, i, j);
+           			Collections.swap(filedata, i, j);
 			   }
 			}while (i<j);     
 			    
-      Collections.swap(filedata, left, j);
+      		  Collections.swap(filedata, left, j);
 		  sort_ranking(left, j-1); 
 		  sort_ranking(j+1, right); 
 		}
 		int ranking_update=1;
 		for(int k=0;k<filedata.size();k++) {
-      if(k!=0){
-        if(filedata.get(k).getWin_number()==filedata.get(k-1).getWin_number()) { 
-				  filedata.get(k).setRanking(filedata.get(k-1).getRanking());
-        }
-        else{filedata.get(k).setRanking(ranking_update++);}
+		      if(k!=0){
+			if(filedata.get(k).getWin_number()==filedata.get(k-1).getWin_number()) { 
+				filedata.get(k).setRanking(filedata.get(k-1).getRanking());
 			}
-      else{
-        filedata.get(k).setRanking(ranking_update++);
-      }
+			else{
+				filedata.get(k).setRanking(ranking_update++);}
+			}
+		      else{
+			filedata.get(k).setRanking(ranking_update++);
+		      }
 		}
 	}
   
