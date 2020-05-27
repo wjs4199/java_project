@@ -24,7 +24,7 @@ public class Wind extends Variable{ //변인2, 풍속은 매횟수마다 랜덤�
 	}
 	public void print_wind() {
 		System.out.print("Wind speed: ");
-		System.out.printf("%.2f", wind_speed);
+		System.out.printf("%.2f", wind_speed*10);
 		System.out.print(", Wind direction: ");
 		System.out.printf("%.2f\n", wind_direction);
 	}

@@ -14,11 +14,20 @@ public class Target {
 		TARGET_WIDTH = 2;
 	}
 	
-	public int decide_score(double y, double z){
+	public int decide_score(double y, double z, char type, int condition){
 		//double delta = Math.abs(z - TARGET_MID);
 		System.out.printf("Noise level: %.2f\n",crowd.get_noiselevel());
-		double delta = Math.sqrt((y-0)*(y-0)+(z-1)*(z-1))+crowd.get_noiselevel()/100;
-		
+		double delta;
+		if(type == 't') {
+			delta = Math.sqrt((y-0)*(y-0)+(z-1)*(z-1))+crowd.get_noiselevel()/50-(condition)/75;
+		}
+		else if(type == 'r') {
+			delta = Math.sqrt((y-0)*(y-0)+(z-1)*(z-1))+crowd.get_noiselevel()/100-(condition)/100;
+		}
+		else {
+			delta = 0;
+			System.exit(0);
+		}		
 		if(delta <= 0.1) return 10;
 		else if(delta <= 0.2) return 9;
 		else if(delta <= 0.3) return 8;

@@ -1,10 +1,10 @@
 1:ggggg:85
-2:bbbbb:77
+2:bbbbb:78
 3:*YEEUN:57
 4:aaaaa:22
 5:*HELLO:13
 6:eeeee:11
-7:bbbbb:10
-7:hhhhh:10
-8:fffff:2
-9:eunye:1
+6:hhhhh:11
+6:bbbbb:11
+7:fffff:2
+8:eunye:1

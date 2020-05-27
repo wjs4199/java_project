@@ -4,43 +4,44 @@ public class File1{
 	private String name;
 	private int win_number;
 
-  public File1(){
-    ranking=0;
-    name="name";
-    win_number=0;
-  }
+	public File1(){
+		ranking=0;
+		name="name";
+		win_number=0;
+	}
 
-  public File1(int ranking, String name, int win_number){
-    this.ranking=ranking;
-    this.name=name;
-    this.win_number=win_number;
-  }
+	public File1(int ranking, String name, int win_number){
+	  	this.ranking=ranking;
+    	this.name=name;
+    	this.win_number=win_number;
+  	}
 
-  public int getRanking() {
+  	public int getRanking() {
 		return ranking;
 	}
 
-  public void setRanking(int ranking){
-    this.ranking=ranking;
-  }
+  	public void setRanking(int ranking){
+  		this.ranking=ranking;
+  	}
 
-  public String getName() {
+  	public String getName() {
 		return name;
 	}
 
-  public void setName(String name){
-    this.name=name;
-  }
+  	public void setName(String name){
+  		this.name=name;
+  	}
 
-  public int getWin_number() {
+  	public int getWin_number() {
 		return win_number;
 	}
 
-  public void setWin_number(int win_number){
-    this.win_number=win_number;
-  }
+  	public void setWin_number(int win_number){
+  		this.win_number=win_number;
+  	}
   
 	public void plusWin_number(){
-    win_number++;
-  }
+		win_number++;
+	}
 }
+

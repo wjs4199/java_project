@@ -9,14 +9,14 @@ class RankingFile {
 	private static String DATA_FILE= "ranking.txt";
 	private File1[] filedata=new File1[12];
   
-  //Constructor
-  public RankingFile(){
-    for(int i=0;i<12;i++){
-      filedata[i]=new File1(0,"blank",0);
-    }
-  }
+	//Constructor
+	public RankingFile(){
+		for(int i=0;i<12;i++){
+			filedata[i]=new File1(0,"blank",0);
+		}
+	}
 
-  //Save updated game ranking history
+	//Save updated game ranking history
 	public void save() {
 		FileWriter outputStream = null;
 		try{
@@ -35,7 +35,7 @@ class RankingFile {
 		} 
 	}
 	
-  //Loading original ranking history
+	//Loading original ranking history
 	public void load() {
 		Scanner inputStream = null; 
 		try{ 
@@ -46,38 +46,38 @@ class RankingFile {
 			System.exit(0); 
 		} 
 		for(int i=0;i<10;i++){
-      String[] history=new String[3];
+			String[] history=new String[3];
 			String line = inputStream.nextLine();
 			history = line.split(":");
-      filedata[i]=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));	
-    } 
+			filedata[i]=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));	
+		} 
 		inputStream.close(); 
 	}
 
-  //Update the game history of Player1 and Player2 in the original ranking
-	public void update_players(Player p1, Player p2) {
+	//Update the game history of Player1 and Player2 in the original ranking
+	public void update_players(Rabbit p1, Tiger p2) {
 		boolean check1= false;
 		boolean check2= false;  
 		for(int i=0;i<10;i++) {
-			if(filedata[i].getName().equals(p1.getName())) {
-        if(p1.getOutcome()){
-          filedata[i].plusWin_number();
-        }
+			if(filedata[i].getName().equals(p1.get_NAME())) {
+				if(p1.is_win(p2)==1){
+					filedata[i].plusWin_number();
+				}
 				check1=true;
 			}
-			else if(filedata[i].getName().equals(p2.getName())) {
-        if(p1.getOutcome()){
-          filedata[i].plusWin_number();
-        }
+			else if(filedata[i].getName().equals(p2.get_NAME())) {
+				if(p1.is_win(p2)==-1){
+					filedata[i].plusWin_number();
+				}
 				check2=true;
 			}
 		}
-		int j=11;
+		int j=10;
 		if(check1==false) {
-      filedata[j++]=new File1(j,p1.getName(),0);
-	  }
+			filedata[j++]=new File1(j,p1.get_NAME(),0);
+		}
 		if(check2==false) {
-			filedata[j]=new File1(j,p2.getName(),0);
+			filedata[j]=new File1(j,p2.get_NAME(),0);
 		}
   }  
 	
@@ -110,28 +110,27 @@ class RankingFile {
 		}
 		int ranking_update=1;
 		for(int k=0;k<12;k++) {
-      if(k!=0){
-        if(filedata[k].getWin_number()==filedata[k-1].getWin_number()) { 
-				  filedata[k].setRanking(filedata[k-1].getRanking());
-        }
-        else{filedata[k].setRanking(ranking_update++);}
+			if(k!=0){
+				if(filedata[k].getWin_number()==filedata[k-1].getWin_number()) filedata[k].setRanking(filedata[k-1].getRanking());
+				else filedata[k].setRanking(ranking_update++);
+				}
+			else{
+				filedata[k].setRanking(ranking_update++);
 			}
-      else{
-        filedata[k].setRanking(ranking_update++);
-      }
 		}
 	}
   
 	//Print Ranking (automatically load, update, save)
-	public void print_ranking(Player p1, Player p2) {
-    load();
-    update_players(p1, p2);
-    sort_ranking(0, 11);
+	public void print_ranking(Rabbit p1, Tiger p2) {
+		load();
+		update_players(p1, p2);
+		sort_ranking(0, 11);
 		System.out.println("===============Ranking==============");
 		System.out.println("Ranking    Player name    Win");
 		for(int i=0;i<10;i++) {
 			System.out.println("  "+filedata[i].getRanking()+"위         "+filedata[i].getName()+"       "+filedata[i].getWin_number());
 		}
 		save();
+		System.out.println("3");
 	}
 }

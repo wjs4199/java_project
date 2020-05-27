@@ -1,13 +1,15 @@
 import java.util.Scanner;
 
 public class Player {
-	private int hp;
-	private String name;
-	private int round;
-	private int[] score_arr = new int[10];
+	protected int condition;
+	protected String name;
+	protected int round;
+	protected int[] score_arr = new int[10];
+	protected int outcome;
 	
 	public Player() {
-		hp =50;
+		round = 0;
+		condition = 5;
 		name = "NULL";
 	}
 	
@@ -31,31 +33,10 @@ public class Player {
 		return sum;
 	}
 	
-	public void run() {
-		Gravity gravity = new Gravity();
-		Wind wind = new Wind();
-		Power power = new Power();
-		Angle angle = new Angle();
-		Scanner sc = new Scanner(System.in);
-		//System.out.print("Wind speed: "+wind.get_speed()+" Wind direction: "+wind.get_direction());
-		wind.print_wind();
-		//angle.set(sc.nextDouble(),sc.nextDouble());
-		angle.set(3,0);
-		
-		Target target = new Target();
-		Arrow arrow = new Arrow(gravity, wind, power, angle);
-				
-		int x;
-		double real_x, real_y, real_z;
-		do {
-			real_x = arrow.fx();
-			real_y = arrow.fy();
-			real_z = arrow.fz();
-			x = (int)Math.floor(real_x);
-		}while(x!=100);
-		System.out.printf("(x,y,z): (%.2f, %.2f, %.2f)\n",real_x,real_y,real_z);
-		
-		score_arr[round++] =target.decide_score(real_y, real_z);
+	public int is_win(Player p2) {
+		if(this.sum_score() > p2.sum_score()) return 1;
+		else if(this.sum_score() < p2.sum_score()) return -1;
+		else return 0;
 	}
 
 }
