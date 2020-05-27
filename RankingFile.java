@@ -3,26 +3,26 @@ import java.io.IOException;
 import java.io.FileNotFoundException; 
 import java.io.File; 
 import java.util.Scanner; 
+import java.util.ArrayList;
+import java.util.*;
 
 class RankingFile {
 	
 	private static String DATA_FILE= "ranking.txt";
-	private File1[] filedata=new File1[12];
-  
-	//Constructor
-	public RankingFile(){
-		for(int i=0;i<12;i++){
-			filedata[i]=new File1(0,"blank",0);
-		}
-	}
+	private ArrayList<File1> filedata;
 
+  //Constructor
+  public RankingFile(){
+    filedata=new ArrayList<>();
+  }
+  
 	//Save updated game ranking history
 	public void save() {
 		FileWriter outputStream = null;
 		try{
 			outputStream = new FileWriter(DATA_FILE);
-			for (int i = 0; i < 10; i++) {
-				String line=filedata[i].getRanking()+":"+filedata[i].getName()+":"+filedata[i].getWin_number()+"\n";
+			for (int i = 0; i < filedata.size(); i++) {
+				String line=filedata.get(i).getRanking()+":"+filedata.get(i).getName()+":"+filedata.get(i).getWin_number()+"\n";
 				outputStream.write(line);
 			}
 			outputStream.close();  
@@ -45,12 +45,13 @@ class RankingFile {
 			System.out.println("Error opening the file " + DATA_FILE); 
 			System.exit(0); 
 		} 
-		for(int i=0;i<10;i++){
-			String[] history=new String[3];
-			String line = inputStream.nextLine();
+		while(inputStream.hasNextLine()){
+      String line=inputStream.nextLine();
+      String[] history=new String[3];
 			history = line.split(":");
-			filedata[i]=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));	
-		} 
+      File1 temp=new File1(Integer.parseInt(history[0]),history[1],Integer.parseInt(history[2]));
+      filedata.add(temp);
+    } 
 		inputStream.close(); 
 	}
 
@@ -58,26 +59,38 @@ class RankingFile {
 	public void update_players(Rabbit p1, Tiger p2) {
 		boolean check1= false;
 		boolean check2= false;  
-		for(int i=0;i<10;i++) {
-			if(filedata[i].getName().equals(p1.get_NAME())) {
+		for(int i=0;i<filedata.size();i++) {
+			if(filedata.get(i).getName().equals(p1.get_NAME())) {
 				if(p1.is_win(p2)==1){
-					filedata[i].plusWin_number();
+					filedata.get(i).plusWin_number();
 				}
 				check1=true;
 			}
-			else if(filedata[i].getName().equals(p2.get_NAME())) {
+			else if(filedata.get(i).getName().equals(p2.get_NAME())) {
 				if(p1.is_win(p2)==-1){
-					filedata[i].plusWin_number();
+					filedata.get(i).plusWin_number();
 				}
 				check2=true;
 			}
 		}
-		int j=10;
+		File1 temp;
 		if(check1==false) {
-			filedata[j++]=new File1(j,p1.get_NAME(),0);
+      if(p1.is_win(p2)==1){
+        temp=new File1(0,p1.get_NAME(),1);
+      }
+      else{
+        temp=new File1(0,p1.get_NAME(),0);
+      }
+			filedata.add(temp);
 		}
 		if(check2==false) {
-			filedata[j]=new File1(j,p2.get_NAME(),0);
+			if(p1.is_win(p2)==-1){
+        temp=new File1(0,p2.get_NAME(),1);
+      }
+      else{
+        temp=new File1(0,p2.get_NAME(),0);
+      }
+			filedata.add(temp);
 		}
   }  
 	
@@ -87,50 +100,46 @@ class RankingFile {
 		if (left < right) { 
 			i = left;     
 			j = right+1; 
-			pivot = filedata[left].getWin_number(); 
+			pivot = filedata.get(left).getWin_number(); 
 			do { 
 			   do i++; 
-			   while(i <= right && filedata[i].getWin_number() > pivot); 
+			   while(i <= right && filedata.get(i).getWin_number() > pivot); 
 			   do j--; 
-			   while(j  > left  && filedata[j].getWin_number() < pivot); 
+			   while(j  > left  && filedata.get(j).getWin_number() < pivot); 
 			   if(i<j) {
-				   File1 temp=new File1();
-				   temp=filedata[i];
-				   filedata[i]=filedata[j];
-				   filedata[j]=temp;
+           Collections.swap(filedata, i, j);
 			   }
 			}while (i<j);     
 			    
-			File1 temp=new File1();
-			temp=filedata[left];
-		  filedata[left]=filedata[j];
-		  filedata[j]=temp;
+      Collections.swap(filedata, left, j);
 		  sort_ranking(left, j-1); 
 		  sort_ranking(j+1, right); 
 		}
 		int ranking_update=1;
-		for(int k=0;k<12;k++) {
-			if(k!=0){
-				if(filedata[k].getWin_number()==filedata[k-1].getWin_number()) filedata[k].setRanking(filedata[k-1].getRanking());
-				else filedata[k].setRanking(ranking_update++);
-				}
-			else{
-				filedata[k].setRanking(ranking_update++);
+		for(int k=0;k<filedata.size();k++) {
+      if(k!=0){
+        if(filedata.get(k).getWin_number()==filedata.get(k-1).getWin_number()) { 
+				  filedata.get(k).setRanking(filedata.get(k-1).getRanking());
+        }
+        else{filedata.get(k).setRanking(ranking_update++);}
 			}
+      else{
+        filedata.get(k).setRanking(ranking_update++);
+      }
 		}
 	}
+  
   
 	//Print Ranking (automatically load, update, save)
 	public void print_ranking(Rabbit p1, Tiger p2) {
 		load();
 		update_players(p1, p2);
-		sort_ranking(0, 11);
+		sort_ranking(0, filedata.size()-1);
 		System.out.println("===============Ranking==============");
 		System.out.println("Ranking    Player name    Win");
 		for(int i=0;i<10;i++) {
-			System.out.println("  "+filedata[i].getRanking()+"위         "+filedata[i].getName()+"       "+filedata[i].getWin_number());
+			System.out.println("  "+filedata.get(i).getRanking()+"위         "+filedata.get(i).getName()+"       "+filedata.get(i).getWin_number());
 		}
 		save();
-		System.out.println("3");
 	}
 }
