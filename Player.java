@@ -25,7 +25,7 @@ public class Player {
 	public int get_SCORE(int i) {return score_arr[i];}
 	public Wind get_wind() {return wind;}
 	public Crowd get_crowd() {return crowd;}
-	
+	public String get_SCORE_str(int i) {return String.valueOf(score_arr[i]);}
 	
 	public int sum_score() {
 		int sum =0;
