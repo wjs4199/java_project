@@ -15,12 +15,29 @@ class RankingFile {
 	public RankingFile(){
 		filedata=new ArrayList<>();
 	}
-  
+  	
+	//arrylist의 크기
+	public int getfiledata() {
+		return filedata.size();
+	}
+	
+	//ranking띄울때 사용될 2차원배열을 
+	public String[][] getvlaues(){
+		String values[][]=new String[filedata.size()][3];
+		for(int i=0;i<filedata.size();i++) {
+			values[i][0]= "               "+String.valueOf(filedata.get(i).getRanking())+"위";
+			values[i][1]= "             "+filedata.get(i).getName();
+			values[i][2]= "               "+String.valueOf(filedata.get(i).getWin_number());			System.out.println(values[i][0]+values[i][1]+values[i][2]);
+		}
+		return values;
+	}
+	
 	//Save updated game ranking history
 	public void save() {
 		FileWriter outputStream = null;
 		try{
 			outputStream = new FileWriter(DATA_FILE);
+			
 			for (int i = 0; i < filedata.size(); i++) {
 				String line=filedata.get(i).getRanking()+":"+filedata.get(i).getName()+":"+filedata.get(i).getWin_number()+"\n";
 				outputStream.write(line);
@@ -40,6 +57,7 @@ class RankingFile {
 		Scanner inputStream = null; 
 		try{ 
 			inputStream = new Scanner(new File(DATA_FILE)); 
+			
 		} 
 		catch(FileNotFoundException e){ 
 			System.out.println("Error opening the file " + DATA_FILE); 
