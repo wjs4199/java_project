@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Player {
@@ -27,6 +28,7 @@ public class Player {
 	public Crowd get_crowd() {return crowd;}
 	public String get_SCORE_str(int i) {return String.valueOf(score_arr[i]);}
 	
+	
 	public int sum_score() {
 		int sum =0;
 		for(int score : score_arr) sum += score;
@@ -39,11 +41,23 @@ public class Player {
 		else return 0;
 	}
 	
-	public void run() {
+	public String return_windstr() {
+		DecimalFormat form1 = new DecimalFormat("#.#");
+		DecimalFormat form2 = new DecimalFormat("#");
+		String windstr = "Speed: " + form1.format(this.get_wind().get_speed()*10) + " Direct: " + form2.format(this.get_wind().get_direction());
+		return windstr;
+	}
+	public String return_crowdstr() {
+		DecimalFormat form = new DecimalFormat("#.##");
+		String audiencestr = "Audience: " + form.format(this.get_crowd().get_noiselevel());
+		return audiencestr;
+	}
+	
+	public void run(double a, double b) {
 		wind.print_wind();
-		//angle.set(sc.nextDouble(),sc.nextDouble());
-		angle.set(3,0);
-		
+		angle.set(3+a,b);
+		angle.print_angle();
+
 		Target target = new Target(crowd);
 		Arrow arrow = new Arrow(gravity, wind, power, angle);
 				
