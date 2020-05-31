@@ -1,16 +1,16 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class TestConsole {
 
 	public static void main(String[] args) {
 		RankingFile rf = new RankingFile();
 		System.out.println("Rabbit And Tiger loading...");
-		Rabbit p1 = new Rabbit();
-		Tiger p2 = new Tiger();
-		System.out.println("Player 1");
-		p1.set_playerNAME();
-		System.out.println("Player 2");
-		p2.set_playerNAME();
+		Player p1 = new Player('r');
+		Player p2 = new Player('t');
+		//System.out.println("Player 1");
+		//p1.set_playerNAME();
+		//System.out.println("Player 2");
+		//p2.set_playerNAME();
 		for(int i=0; i<10; i++) {
 			p1.run();
 			System.out.println(p1.get_NAME()+"'s "+(i+1)+"th Trial Score: "+ p1.get_SCORE(i)+"\n");
@@ -26,7 +26,7 @@ public class TestConsole {
 		rf.print_ranking(p1, p2);
 	}
 	
-	/*public static int run_withoutV() {
+	public static int run_withoutV() {
 		Gravity gravity = new Gravity();
 		Wind wind = new Wind();
 		wind.set(10,90);
@@ -48,7 +48,7 @@ public class TestConsole {
 		}while(x!=100);
 		System.out.println("(x,y,z): "+"("+real_x+","+real_y+","+real_z+")");
 		return target.decide_score(real_y, real_z);
-	}*/
+	}
 	
 
-}
+}*/

@@ -15,15 +15,10 @@ class RankingFile {
 	public RankingFile(){
 		filedata=new ArrayList<>();
 	}
-  	
-	//arrylist의 크기
-	public int getfiledata() {
-		return filedata.size();
-	}
+	public int getfiledata() {return filedata.size();}
 	
-	//ranking띄울때 사용될 2차원배열을 
-	public String[][] getvlaues(){
-		String values[][]=new String[filedata.size()][3];
+	public String[][] getvalues(){
+		String values[][] = new String[filedata.size()][3];
 		for(int i=0;i<filedata.size();i++) {
 			values[i][0]= "               "+String.valueOf(filedata.get(i).getRanking())+"위";
 			values[i][1]= "             "+filedata.get(i).getName();
@@ -31,13 +26,11 @@ class RankingFile {
 		}
 		return values;
 	}
-	
 	//Save updated game ranking history
 	public void save() {
 		FileWriter outputStream = null;
 		try{
 			outputStream = new FileWriter(DATA_FILE);
-			
 			for (int i = 0; i < filedata.size(); i++) {
 				String line=filedata.get(i).getRanking()+":"+filedata.get(i).getName()+":"+filedata.get(i).getWin_number()+"\n";
 				outputStream.write(line);
@@ -57,7 +50,6 @@ class RankingFile {
 		Scanner inputStream = null; 
 		try{ 
 			inputStream = new Scanner(new File(DATA_FILE)); 
-			
 		} 
 		catch(FileNotFoundException e){ 
 			System.out.println("Error opening the file " + DATA_FILE); 
@@ -74,7 +66,7 @@ class RankingFile {
 	}
 
 	//Update the game history of Player1 and Player2 in the original ranking
-	public void update_players(Rabbit p1, Tiger p2) {
+	public void update_players(Player p1, Player p2) {
 		boolean check1= false;
 		boolean check2= false;  
 		for(int i=0;i<filedata.size();i++) {
@@ -150,7 +142,7 @@ class RankingFile {
   
   
 	//Print Ranking (automatically load, update, save)
-	public void print_ranking(Rabbit p1, Tiger p2) {
+	public void print_ranking(Player p1, Player p2) {
 		load();
 		update_players(p1, p2);
 		sort_ranking(0, filedata.size()-1);

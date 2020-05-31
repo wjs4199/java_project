@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Wind extends Variable{ //변인2, 풍속은 매횟수마다 랜덤한 값으로 변화 
+public class Wind extends Variable{
 	private double wind_direction;
 	private double wind_speed;
 	
@@ -15,6 +15,11 @@ public class Wind extends Variable{ //변인2, 풍속은 매횟수마다 랜덤�
 	}
 	public Wind get() {
 		return this;
+	}
+	public void reset() {
+		Random rand = new Random();		
+		wind_speed = ((rand.nextDouble()*100)%1);
+		wind_direction = ((rand.nextDouble()*1000)%360);
 	}
 	public double get_speed() {
 		return wind_speed;

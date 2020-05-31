@@ -27,7 +27,7 @@ public class Arrow {
 
 	}
 	
-	public double fx() { // dx를 이용해서 위치 구하는 함수 구현 
+	public double fx() { 
 		arrow_x = arrow_x + arrow_dx*0.0001;
 		return arrow_x;
 	}
@@ -35,7 +35,7 @@ public class Arrow {
 		arrow_y = arrow_y + arrow_dy*0.0001;
 		return arrow_y;
 	}
-	public double fz() { // dz를 이용해서 위치 구하는 함수 구현
+	public double fz() { 
 		arrow_dz = arrow_dz - gravity.get_gravity()*0.0001;
 		arrow_z = arrow_z + arrow_dz*0.0001;
 		return arrow_z;

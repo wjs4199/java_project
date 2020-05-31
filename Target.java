@@ -6,8 +6,8 @@ public class Target {
 	private static int TARGET_MID;
 	private static int TARGET_WIDTH;
 	
-	public Target() {
-		crowd = new Crowd();
+	public Target(Crowd crowd) {
+		this.crowd = crowd;
 		TARGET_X = 100;
 		TARGET_HEIGHT = 2;
 		TARGET_MID = TARGET_HEIGHT/2;

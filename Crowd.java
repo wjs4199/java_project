@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Crowd extends Variable{ //변인3, 관중소리는 매횟수마다 랜덤한 값으로 변화 
+public class Crowd extends Variable{ 
 	double noise_level;
 	
 	public Crowd() {
@@ -9,6 +9,10 @@ public class Crowd extends Variable{ //변인3, 관중소리는 매횟수마다 
 	}
 	public void set(double x) {
 		noise_level = x;
+	}
+	public void reset() {
+		Random rand = new Random();
+		noise_level = (rand.nextDouble()*100%10);	
 	}
 	public double get_noiselevel() {
 		return noise_level;
