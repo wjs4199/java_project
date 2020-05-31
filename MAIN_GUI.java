@@ -12,14 +12,14 @@ public class MAIN_GUI {
 	
 	public static void main(String[] args) {
 		
-		//ÇÁ·¹ÀÓ ¼³Á¤ 400*400»çÀÌÁî·Î
+		//í”„ë ˆì„ ì„¤ì • 400*400ì‚¬ì´ì¦ˆë¡œ
 		Dimension dim=new Dimension(400,400);
 		JFrame frame=new JFrame("The Rabbit and Tiger");	
-		frame.setLocation(400, 400);	//Ã¢ À§Ä¡ ¼³Á¤
-		frame.setPreferredSize(dim);	//Ã¢ Å©±â ¼³Á¤
-		frame.setResizable(false);		//Ã¢ Å©±â Á¶Àı ºÒ°¡ ¼³Á¤
+		frame.setLocation(400, 400);	//ì°½ ìœ„ì¹˜ ì„¤ì •
+		frame.setPreferredSize(dim);	//ì°½ í¬ê¸° ì„¤ì •
+		frame.setResizable(false);		//ì°½ í¬ê¸° ì¡°ì ˆ ë¶ˆê°€ ì„¤ì •
 
-		//Ã¹¹øÂ° ÆäÀÌÁö·Î frame °´Ã¼ Àü´Ş
+		//ì²«ë²ˆì§¸ í˜ì´ì§€ë¡œ frame ê°ì²´ ì „ë‹¬
 		StartPage startpage=new StartPage(frame);
 	
 		frame.pack();
@@ -27,34 +27,34 @@ public class MAIN_GUI {
 	}
 }
 
-//Ã¹¹øÂ° ÆäÀÌÁö
+//ì²«ë²ˆì§¸ í˜ì´ì§€
 class StartPage{
 	
 	public StartPage(JFrame frame){
 		
-		//Ã³À½¿¡ ´ÙÀ½ÁÙ°ú °°ÀÌ COntainer¸¦ ¸¸µé¾î¼­ ÀÌ ¾È¿¡ add ÇÏ´Â Çü½ÄÀÌ °¡Àå ¾ÈÁ¤ÀûÀ¸·Î Àû¿ëµÊ
+		//ì²˜ìŒì— ë‹¤ìŒì¤„ê³¼ ê°™ì´ COntainerë¥¼ ë§Œë“¤ì–´ì„œ ì´ ì•ˆì— add í•˜ëŠ” í˜•ì‹ì´ ê°€ì¥ ì•ˆì •ì ìœ¼ë¡œ ì ìš©ë¨
 		Container contentPane=frame.getContentPane();
 		
 		
-		//Ã¹ ÆäÀÌÁö ÀÌ¹ÌÁö »çÁø »ğÀÔ
+		//ì²« í˜ì´ì§€ ì´ë¯¸ì§€ ì‚¬ì§„ ì‚½ì…
 		StartPanelImage startImage=new StartPanelImage();
 		frame.add(startImage);
 		startImage.setVisible(true);
 		
 		
-		//¹öÆ°À» ³ÖÀ» ÆĞ³Î »ı¼º
+		//ë²„íŠ¼ì„ ë„£ì„ íŒ¨ë„ ìƒì„±
 		FlowLayout layout=new FlowLayout();
 		JPanel startButtonPanel1=new JPanel();
-		startButtonPanel1.setLayout(layout);	//start¹öÆ° ³ÖÀ» ÆĞ³Î »ı¼º
+		startButtonPanel1.setLayout(layout);	//startë²„íŠ¼ ë„£ì„ íŒ¨ë„ ìƒì„±
 		JPanel startButtonPanel2=new JPanel();
-		startButtonPanel2.setLayout(layout);	//rank¹öÆ° ³ÖÀ» ÆĞ³Î »ı¼º
+		startButtonPanel2.setLayout(layout);	//rankë²„íŠ¼ ë„£ì„ íŒ¨ë„ ìƒì„±
 		JPanel startButtonPanel3=new JPanel();
-		startButtonPanel3.setLayout(layout);	//quit¹öÆ° ³ÖÀ» ÆĞ³Î »ı¼º
+		startButtonPanel3.setLayout(layout);	//quitë²„íŠ¼ ë„£ì„ íŒ¨ë„ ìƒì„±
 		JPanel startButtonPanel4=new JPanel();
-		startButtonPanel4.setLayout(layout);	//¹öÆ°µé ÇÕÄ¡´Â ÆĞ³Î »ı¼º
+		startButtonPanel4.setLayout(layout);	//ë²„íŠ¼ë“¤ í•©ì¹˜ëŠ” íŒ¨ë„ ìƒì„±
 
-		//¹öÆ°ÀÇ ¼Ó¼ºµéÀ» °¢°¢ ¼³Á¤, ³ªÁß¿¡ ¼öÁ¤ ¿¹Á¤
-		//Ã¹¹øÂ° ÆäÀÌÁö START ¹öÆ°
+		//ë²„íŠ¼ì˜ ì†ì„±ë“¤ì„ ê°ê° ì„¤ì •, ë‚˜ì¤‘ì— ìˆ˜ì • ì˜ˆì •
+		//ì²«ë²ˆì§¸ í˜ì´ì§€ START ë²„íŠ¼
 		JButton startPageButton1=new JButton("Start");
 		startPageButton1.setBackground(Color.gray);
 		startPageButton1.setForeground(Color.WHITE);
@@ -63,22 +63,22 @@ class StartPage{
 		startPageButton1.setVerticalAlignment(SwingConstants.CENTER);
 		startPageButton1.setSize(180, 60);
 		
-		//Start¹öÆ° Å¬¸¯½Ã Àû¿ë, ´ÙÀ½ÆäÀÌÁö·Î frame °´Ã¼¸¦ ³Ñ°ÜÁÜ
+		//Startë²„íŠ¼ í´ë¦­ì‹œ ì ìš©, ë‹¤ìŒí˜ì´ì§€ë¡œ frame ê°ì²´ë¥¼ ë„˜ê²¨ì¤Œ
 				ActionListener startListener=new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						//±âÁ¸À¸ ÀÌ¹ÌÁö,¹öÆ°Àº ¾Èº¸ÀÌ°Ô ¼³Á¤
+						//ê¸°ì¡´ìœ¼ ì´ë¯¸ì§€,ë²„íŠ¼ì€ ì•ˆë³´ì´ê²Œ ì„¤ì •
 						startImage.setVisible(false);
 						startButtonPanel4.setVisible(false);
 						SecondPage secondpage=new SecondPage(frame);
 						
 					}
 				};
-				//ÀÌ ¾Æ·¡²¨ ¾È½á¼­ 2½Ã°£ ³¯¸² ¿¡¹Ù¾ß
+				//ì´ ì•„ë˜êº¼ ì•ˆì¨ì„œ 2ì‹œê°„ ë‚ ë¦¼ ì—ë°”ì•¼
 				startPageButton1.addActionListener(startListener);	
 				
 				
-		//Ãµ¹øÂ° ÆäÀÌÁö RANK ¹öÆ°   
+		//ì²œë²ˆì§¸ í˜ì´ì§€ RANK ë²„íŠ¼   
 		JButton startPageButton2=new JButton("Rank");
 		startPageButton2.setBackground(Color.gray);
 		startPageButton2.setForeground(Color.WHITE);
@@ -86,7 +86,7 @@ class StartPage{
 		startPageButton2.setHorizontalAlignment(SwingConstants.CENTER);
 		startPageButton2.setVerticalAlignment(SwingConstants.CENTER);
 		startPageButton2.setSize(180, 60);
-		//RankÆäÀÌÁö·Î ÀÌµ¿
+		//Rankí˜ì´ì§€ë¡œ ì´ë™
 		ActionListener rankListener=new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -97,7 +97,7 @@ class StartPage{
 		startPageButton2.addActionListener(rankListener);	
 		
 		
-		//Ã¹¹øÂ° ÆäÀÌÁö Quit ¹öÆ°
+		//ì²«ë²ˆì§¸ í˜ì´ì§€ Quit ë²„íŠ¼
 		JButton startPageButton3=new JButton("Quit");
 		startPageButton3.setBackground(Color.gray);
 		startPageButton3.setForeground(Color.WHITE);
@@ -119,22 +119,22 @@ class StartPage{
 		
 		
 		
-		//°¢ ¹öÆ°ÀÇ À§Ä¡ ÁöÁ¤ÇØ¼­ ÇÑ°³ÀÇ ÆÇ³Ú¿¡ ÁöÁ¤
+		//ê° ë²„íŠ¼ì˜ ìœ„ì¹˜ ì§€ì •í•´ì„œ í•œê°œì˜ íŒë„¬ì— ì§€ì •
 		startButtonPanel4.add(startPageButton1,BorderLayout.WEST);
 		startButtonPanel4.add(startPageButton2,BorderLayout.CENTER);
 		startButtonPanel4.add(startPageButton3,BorderLayout.EAST);
 		
-		//ÇÕÄ£ ¹öÆ° Frame¿¡ Àû¿ë ÀÌ¶§ frame¿¡ ¹Ù·Î Àû¿ëÇÏÁö ¾Ê°í ¸Ç À§¿¡ ¸¸µç Container¿¡ Àû¿ëÇÔ
-		contentPane.add(startButtonPanel4,BorderLayout.SOUTH);				//ÇÁ·¹ÀÓ¿¡ ÆĞ³ÎÃß°¡
-		startButtonPanel4.setVisible(true);	//¹öÆ° Ãß°¡ÇÏ±â
+		//í•©ì¹œ ë²„íŠ¼ Frameì— ì ìš© ì´ë•Œ frameì— ë°”ë¡œ ì ìš©í•˜ì§€ ì•Šê³  ë§¨ ìœ„ì— ë§Œë“  Containerì— ì ìš©í•¨
+		contentPane.add(startButtonPanel4,BorderLayout.SOUTH);				//í”„ë ˆì„ì— íŒ¨ë„ì¶”ê°€
+		startButtonPanel4.setVisible(true);	//ë²„íŠ¼ ì¶”ê°€í•˜ê¸°
 		
 	}
 }
 
-//µÎ¹øÂ° ÆäÀÌÁö, IDÀÔ·ÂÇÏ´Â ÆäÀÌÁö
+//ë‘ë²ˆì§¸ í˜ì´ì§€, IDì…ë ¥í•˜ëŠ” í˜ì´ì§€
 class SecondPage{
 	
-	//ÀÌ¸§ °¡Á®¿Í¾ßÇÒ¶§ ¿©±â¼­ °¡Á®¿À±â
+	//ì´ë¦„ ê°€ì ¸ì™€ì•¼í• ë•Œ ì—¬ê¸°ì„œ ê°€ì ¸ì˜¤ê¸°
 	public String rabbitName;
 	public String tigerName;
 	
@@ -143,7 +143,7 @@ class SecondPage{
 		Container contentPane=frame.getContentPane();
 		
 		
-		//ÆĞ³Î 2°³¸¦ ¸¸µé¾î¼­ mainPanel¿¡ ³ÖÀº µÚ Container¿¡ Àû¿ë
+		//íŒ¨ë„ 2ê°œë¥¼ ë§Œë“¤ì–´ì„œ mainPanelì— ë„£ì€ ë’¤ Containerì— ì ìš©
 		FlowLayout layout=new FlowLayout();
 		JPanel mainPanel=new JPanel();
 		mainPanel.setSize(400, 300);
@@ -155,20 +155,20 @@ class SecondPage{
 		JPanel tigerID=new JPanel();
 		tigerID.setLayout(layout);
 		tigerID.setVisible(true);
-		JPanel buttonPanel=new JPanel();	//Panel »ı¼º
+		JPanel buttonPanel=new JPanel();	//Panel ìƒì„±
 		
-		//¶óº§ ¼³Á¤
+		//ë¼ë²¨ ì„¤ì •
 		Font font=new Font("Helvica",Font.BOLD,13);
 		Label rabbitlbl=new Label("Rabbit");
 		rabbitlbl.setFont(font);
 		Label tigerlbl=new Label("Tiger");
 		tigerlbl.setFont(font);
 		
-		//ÀÌ ÅØ½ºÆ®ÇÊµå°¡ »ç¿ëÀÚ°¡ ÀÔ·ÂÇÒ ¼ö ÀÖ°Ô ÇØÁÜ
+		//ì´ í…ìŠ¤íŠ¸í•„ë“œê°€ ì‚¬ìš©ìê°€ ì…ë ¥í•  ìˆ˜ ìˆê²Œ í•´ì¤Œ
 		TextField rabbitIdText=new TextField("Name",20);
 		TextField tigerIdText=new TextField("Name",20);
 		
-		//°¢ ÆĞ³Îµé¿¡ Àû¿ëÇØÁÖ±â
+		//ê° íŒ¨ë„ë“¤ì— ì ìš©í•´ì£¼ê¸°
 		rabbitID.add(rabbitlbl);
 		rabbitID.add(rabbitIdText);
 		mainPanel.add(rabbitID);
@@ -177,10 +177,10 @@ class SecondPage{
 		tigerID.add(tigerIdText);
 		mainPanel.add(tigerID);
 		
-		//¸¶Áö¸·À¸·Î ÇÁ·¹ÀÓ¿¡ Àû¿ë
+		//ë§ˆì§€ë§‰ìœ¼ë¡œ í”„ë ˆì„ì— ì ìš©
 		contentPane.add(mainPanel);
 		
-		//½ÃÀÛ ¹öÆ° »ı¼º
+		//ì‹œì‘ ë²„íŠ¼ ìƒì„±
 		JButton startButton=new JButton("START!");
 		startButton.setBackground(Color.gray);
 		startButton.setForeground(Color.WHITE);
@@ -189,7 +189,7 @@ class SecondPage{
 		startButton.setVerticalAlignment(SwingConstants.CENTER);
 		startButton.setSize(180, 200);
 		startButton.setVisible(true);
-		//½ÃÀÛ¹öÆ° ´©¸¦°æ¿ì ³Ñ¾î°¡±â
+		//ì‹œì‘ë²„íŠ¼ ëˆ„ë¥¼ê²½ìš° ë„˜ì–´ê°€ê¸°
 		ActionListener startListener=new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -209,11 +209,70 @@ class SecondPage{
 		contentPane.add(startButton, BorderLayout.SOUTH);
 	}
 }
-//ÇÃ·¹ÀÌ ÆäÀÌÁö
+
+//ì ìˆ˜íŒ class
+class Scoreboard{
+	private String score[][]=new String[11][3];
+	private String scorelevel[]= {"STAGE","Rabbit","Tiger"};
+	private JTable table;
+	
+	//ì ìˆ˜íŒ ë„ìš°ê¸°
+	public Scoreboard(Player p1, Player p2) {
+		Dimension dim=new Dimension(150,400);
+		JFrame frame2=new JFrame("**Score Board**");
+		frame2.setLocation(790,400);
+		frame2.setPreferredSize(dim);
+		frame2.setResizable(false);
+		frame2.setFont(new Font("Helvetica",Font.BOLD,12));
+		
+		for(int i=0;i<10;i++){
+			score[i][0]="Stage "+(i+1);
+			score[i][1]=p1.get_SCORE_str(i);
+			score[i][2]=p2.get_SCORE_str(i);
+		}
+		score[10][0]="SUM";
+		score[10][1]=String.valueOf(p1.sum_score());
+		score[10][2]=String.valueOf(p2.sum_score());
+
+		DefaultTableModel model=new DefaultTableModel(score,scorelevel);
+		table=new JTable(model);
+		
+		DefaultTableCellRenderer model_center = new DefaultTableCellRenderer();
+		model_center.setHorizontalAlignment(SwingConstants.CENTER);
+		TableColumnModel tcm = table.getColumnModel() ;
+		for (int i = 0; i < tcm.getColumnCount(); i++) {
+			tcm.getColumn(i).setCellRenderer(model_center);
+		}
+		
+		table.setRowHeight(30);
+		table.setBackground(Color.gray);
+		table.setForeground(Color.white);
+		table.setVisible(true);
+		JScrollPane scrollpane =new JScrollPane(table);
+		
+		frame2.add(scrollpane,BorderLayout.CENTER);
+		frame2.pack();
+		frame2.setVisible(true);
+	}
+	
+	public void scorechange(Player p1, Player p2) {
+		for(int i=0;i<10;i++) {
+			table.setValueAt(p1.get_SCORE_str(i),i, 1);
+			table.setValueAt(p2.get_SCORE_str(i),i, 2);
+		}
+		table.setValueAt(p1.sum_score(),10,1);
+		table.setValueAt(p2.sum_score(),10,2);
+	}
+}
+
+//í”Œë ˆì´ í˜ì´ì§€
 class PlayPage{
 	
 	
 	public PlayPage(JFrame frame, String rabbitName,String tigerName) {
+		//ì ìˆ˜íŒ class Constructor
+		Scoreboard sc= new Scoreboard(p1,p2); //Player p1,Player p2 ë³´ë‚´ì¤˜ì•¼í•¨
+		
 		RankingFile rf = new RankingFile();
 		Player rabbit = new Player('r');
 		rabbit.set_NAME(rabbitName);
@@ -223,7 +282,7 @@ class PlayPage{
 		Container contentPane=frame.getContentPane();
 		System.out.printf("%s, %s",rabbitName, tigerName);
 		
-		//°ú³á ÀÌ¹ÌÁö, Shoot¹öÆ°ÀÌ ´­¸®¸é °á°ú °ªÀ» ¹Ş¾Æ¼­ ¸Â´Â ÀÌ¹ÌÁö¸¦ Ãâ·Â, ±×¸®°í ´Ù½Ã »ç¶óÁü
+		//ê³¼ë… ì´ë¯¸ì§€, Shootë²„íŠ¼ì´ ëˆŒë¦¬ë©´ ê²°ê³¼ ê°’ì„ ë°›ì•„ì„œ ë§ëŠ” ì´ë¯¸ì§€ë¥¼ ì¶œë ¥, ê·¸ë¦¬ê³  ë‹¤ì‹œ ì‚¬ë¼ì§
 
 		TargetImage targetimage=new TargetImage();
 		targetimage.setVisible(true);
@@ -232,7 +291,7 @@ class PlayPage{
 		frame.add(targetimage);
 		
 		/*
-		 * TO DO: Á¡ ÀÌ¹ÌÁö »ğÀÔ, Å°º¸µå ÀÔ·Â¿¡ µû¶ó ÀÌµ¿ÇÏ°í À§Ä¡°ª ³Ñ°ÜÁÖ´Â ÀÛ¾÷
+		 * TO DO: ì  ì´ë¯¸ì§€ ì‚½ì…, í‚¤ë³´ë“œ ì…ë ¥ì— ë”°ë¼ ì´ë™í•˜ê³  ìœ„ì¹˜ê°’ ë„˜ê²¨ì£¼ëŠ” ì‘ì—…
 		 * */
 		
 		Aim aim = new Aim();
@@ -244,7 +303,7 @@ class PlayPage{
 		contentPane.repaint();
 		
 		
-		//»ç¿ëÀÚ ÀÌ¹ÌÁö, Shoot¹öÆ°À» ´©¸¦¶§¸¶´Ù º¯°æµÇ°Ô ÇÏ±â
+		//ì‚¬ìš©ì ì´ë¯¸ì§€, Shootë²„íŠ¼ì„ ëˆ„ë¥¼ë•Œë§ˆë‹¤ ë³€ê²½ë˜ê²Œ í•˜ê¸°
 		UserImage1 userimage1=new UserImage1();
 		frame.add(userimage1);
 		userimage1.setVisible(true);
@@ -252,7 +311,7 @@ class PlayPage{
 		userimage1.setBounds(0, 180, 220, 70);
 		Label turnOfUser=new Label(rabbitName);
 		
-		//Conditions, ·£´ı°ªÀ» °´Ã¼ »ı¼ºÇØ¼­ ¹Ş¾Æ¿Â´ÙÀ½ Label»ı¼ºÇØ¼­ ÇÕÃÄ¼­ Àû¿ëÇÏ¸é µÊ
+		//Conditions, ëœë¤ê°’ì„ ê°ì²´ ìƒì„±í•´ì„œ ë°›ì•„ì˜¨ë‹¤ìŒ Labelìƒì„±í•´ì„œ í•©ì³ì„œ ì ìš©í•˜ë©´ ë¨
 		Font font1=new Font("Helvica",Font.BOLD,12);
 		JPanel conditions=new JPanel();
 		conditions.setLayout(null);
@@ -267,7 +326,7 @@ class PlayPage{
 		conditions.add(audience);
 		
 		
-		//¹öÆ° ´©¸¦¶§¸¶´Ù ¾ÆÀÌµğ º¯°æÇØÁÖ±â
+		//ë²„íŠ¼ ëˆ„ë¥¼ë•Œë§ˆë‹¤ ì•„ì´ë”” ë³€ê²½í•´ì£¼ê¸°
 		Font font2=new Font("Helvica",Font.BOLD,15);
 		Label userId=new Label(rabbitName);
 		userId.setFont(font2);
@@ -275,7 +334,7 @@ class PlayPage{
 		conditions.add(userId);
 		contentPane.add(conditions);
 		
-		//SHOOT ¹öÆ°
+		//SHOOT ë²„íŠ¼
 		FlowLayout layout=new FlowLayout();
 		JPanel shootPanel= new JPanel(layout);
 		
@@ -292,7 +351,7 @@ class PlayPage{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//ÀÌ¹ÌÁö º¯°æ
+				//ì´ë¯¸ì§€ ë³€ê²½
 				if((turnOfUser.getText()).equals(rabbitName)) {
 					rabbit.run();
 					System.out.println(rabbit.get_SCORE(rabbit.get_round()-1));
@@ -312,14 +371,15 @@ class PlayPage{
 					userimage1.setBounds(0, 180, 200, 70);
 					turnOfUser.setText(rabbitName);
 				}
-				//ÀÌ¸§ º¯°æ
+				//ì´ë¦„ ë³€ê²½
 				if((userId.getText()).equals(rabbitName)) {
 					userId.setText(tigerName);
 				}
 				else {
 					userId.setText(rabbitName);
 				}
-				
+				//shootí• ë•Œë§ˆë‹¤ í”Œë ˆì´ì–´ì ìˆ˜ ì½ì–´ì™€ì„œ ì ìˆ˜íŒ ì—…ë°ì´íŠ¸
+				sc.scorechange(p1, p2); //Player p1, Player p2
 			}
 		};
 		
@@ -330,10 +390,10 @@ class PlayPage{
 		shootPanel.setVisible(true);
 		
 		
-		contentPane.add(shootPanel,BorderLayout.SOUTH);				//ÇÁ·¹ÀÓ¿¡ ÆĞ³ÎÃß°¡
+		contentPane.add(shootPanel,BorderLayout.SOUTH);				//í”„ë ˆì„ì— íŒ¨ë„ì¶”ê°€
 	}
 }
-//Rank ÆäÀÌÁö
+//Rank í˜ì´ì§€
 class RankPage{
 	public RankPage() {
 		Dimension dim =new Dimension (400,300);
@@ -365,18 +425,18 @@ class RankPage{
 		frame.pack();
 		frame.setVisible(true);
 
-			//conditionTable.setValueAt(1,1); ÀÌ·±½Ä¤··Î °ª º¯°æ
+			//conditionTable.setValueAt(1,1); ì´ëŸ°ì‹ã…‡ë¡œ ê°’ ë³€ê²½
 		/*
-		 * Ãß°¡ ¹æ¹ı
+		 * ì¶”ê°€ ë°©ë²•
 		 * String inputStr[]=new String[3];
 		 * model.addRow(inputStr);
 		 */
 		
-		//conditionTable.setValueAt(1,1); ÀÌ·±½Ä¤··Î °ª º¯°æ
+		//conditionTable.setValueAt(1,1); ì´ëŸ°ì‹ã…‡ë¡œ ê°’ ë³€ê²½
 	}
 	
 }
-//°ú³á ±âº» ÀÌ¹ÌÁö 
+//ê³¼ë… ê¸°ë³¸ ì´ë¯¸ì§€ 
 class TargetImage extends JPanel{
 	
 	@Override
@@ -389,7 +449,7 @@ class TargetImage extends JPanel{
 	}
 }
 
-//»ç¿ëÀÚ ÀÌ¹ÌÁö, Åä³¢¶û »çÀÚ
+//ì‚¬ìš©ì ì´ë¯¸ì§€, í† ë¼ë‘ ì‚¬ì
 class UserImage1 extends JPanel{
 	
 	@Override
@@ -411,7 +471,7 @@ class UserImage2 extends JPanel{
 	}
 }
 
-//¸Ç Ã³À½ ½ÃÀÛ ÆäÀÌÁö ÀÌ¹ÌÁö
+//ë§¨ ì²˜ìŒ ì‹œì‘ í˜ì´ì§€ ì´ë¯¸ì§€
 class StartPanelImage extends JPanel{
 	
 	@Override
