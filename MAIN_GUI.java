@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Label;
@@ -97,7 +96,7 @@ class StartPage{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				RankPage secondpage=new RankPage();
-				
+				secondpage.ShowRanking_home();       //save버튼 없는 랭킹창
 			}
 		};
 		startPageButton2.addActionListener(rankListener);	
@@ -548,14 +547,14 @@ class RankPage{
 		frame.setVisible(true);
 	}
 }
-
 //과녁 기본 이미지 
 class TargetImage extends JPanel{
+	
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		Dimension d=new Dimension(400,250);
-		Image img=Toolkit.getDefaultToolkit().getImage("bigTarget.png");
+		Dimension d=new Dimension(400,200);
+		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\SY-Laptop\\Desktop\\JAVATEAM\\bigTarget.png");
 		g.drawImage(img,0,0,d.width,d.height,this);
 	}
 }
@@ -567,7 +566,7 @@ class UserImage1 extends JPanel{
 	public void paint(Graphics g) {
 		super.paint(g);
 		Dimension d=new Dimension(220,70);
-		Image img=Toolkit.getDefaultToolkit().getImage("playerRabbit2.png");
+		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\SY-Laptop\\Desktop\\JAVATEAM\\playerRabbit2.png");
 		g.drawImage(img,0,0,d.width,d.height,this);
 	}
 }
@@ -577,7 +576,7 @@ class UserImage2 extends JPanel{
 	public void paint(Graphics g) {
 		super.paint(g);
 		Dimension d=new Dimension(200,70);
-		Image img=Toolkit.getDefaultToolkit().getImage("playerTiger2.png");
+		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\SY-Laptop\\Desktop\\JAVATEAM\\playerTiger2.png");
 		g.drawImage(img,0,0,d.width,d.height,this);
 	}
 }
@@ -590,7 +589,7 @@ class StartPanelImage extends JPanel{
 		super.paint(g);
 		Dimension d=new Dimension(400,330);
 		g.drawLine(0, 330, 400, 330);
-		Image img=Toolkit.getDefaultToolkit().getImage("startPageImage.png");
+		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\SY-Laptop\\Desktop\\JAVATEAM\\startPageImage.png");
 		g.drawImage(img,0,0,d.width,d.height,this);
 	}
 }
