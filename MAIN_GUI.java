@@ -226,7 +226,7 @@ class Warning{
 	
 	public Warning() {
 		frame.setSize(200,100);
-		frame.setLocation(500,500);
+		frame.setLocation(250,300);
 		frame.setResizable(false);
 		frame.setVisible(true);
 		Label wrong=new Label("Same Name! Please Rename!");
@@ -250,7 +250,7 @@ class Scoreboard{
 		Dimension dim=new Dimension(150,400);
 
 		frame2=new JFrame("**Score Board**");
-		frame2.setLocation(790,400);
+		frame2.setLocation(535,150);
 		frame2.setPreferredSize(dim);
 		frame2.setResizable(false);
 		frame2.setFont(new Font("Helvetica",Font.BOLD,12));
@@ -453,7 +453,7 @@ class PlayPage{
 
 				}else {
 					double delta_x = (pointlbl.getX() - 195)/100.0;
-					double delta_y = (pointlbl.getY() - 90)/100.0;
+					double delta_y = (pointlbl.getY() - 113)/100.0;
 					tiger.run(delta_x, delta_y);
 					userimage1.setVisible(true);
 					userimage2.setVisible(false);
@@ -469,7 +469,7 @@ class PlayPage{
 						Dimension dim=new Dimension(400,400);
 						JFrame new_frame=new JFrame("The Rabbit and Tiger");	
 				    	next.showRanking_end(rabbit, tiger, sc, new_frame); //Player 정보 업데이트 + save 버튼
-						new_frame.setLocation(400, 400);	//창 위치 설정
+						new_frame.setLocation(150, 150);	//창 위치 설정
 						new_frame.setPreferredSize(dim);	//창 크기 설정
 						new_frame.setResizable(false);		//창 크기 조절 불가 설정
 						//첫번째 페이지로 frame 객체 전달
@@ -508,7 +508,7 @@ class RankPage{
 	//Constructor -랭킹 프레임 만들기
 	public RankPage() {
 		Dimension dim =new Dimension (400,300);
-		frame.setLocation(200,400);
+		frame.setLocation(690,150);
 		frame.setPreferredSize(dim);
 		frame.setResizable(false);
 		frame.setFont(new Font("Helvetica",Font.BOLD,12));
