@@ -465,18 +465,17 @@ class PlayPage{
 				    if(rabbit.get_round()+tiger.get_round()==20) {
 				    	sc.showWIN(rabbit, tiger);
 				    	RankPage next = new RankPage();
-				    	next.showRanking_end(rabbit, tiger, sc, frame); //Player 정보 업데이트 + save 버튼
 				    	frame.setVisible(false);
-				    	
 						Dimension dim=new Dimension(400,400);
 						JFrame new_frame=new JFrame("The Rabbit and Tiger");	
+				    	next.showRanking_end(rabbit, tiger, sc, new_frame); //Player 정보 업데이트 + save 버튼
 						new_frame.setLocation(400, 400);	//창 위치 설정
 						new_frame.setPreferredSize(dim);	//창 크기 설정
 						new_frame.setResizable(false);		//창 크기 조절 불가 설정
 						//첫번째 페이지로 frame 객체 전달
 						StartPage return_to_startpage=new StartPage(new_frame);
 						new_frame.pack();
-						new_frame.setVisible(true);
+						//new_frame.setVisible(true);
 				    }
 				}
 				//이름 변경
@@ -490,14 +489,12 @@ class PlayPage{
 				sc.scorechange(rabbit, tiger); //Player p1, Player p2
 			}
 		};
-		
 		shootButton.addActionListener(shootListener);
 		targetimage.addKeyListener(arrowListener);
 		targetimage.requestFocus();
 		shootPanel.add(shootButton);
 		shootButton.setVisible(true);
 		shootPanel.setVisible(true);
-		
 		contentPane.add(shootPanel,BorderLayout.SOUTH);				//프레임에 패널추가
 	}
 }
@@ -562,6 +559,7 @@ class RankPage{
 			public void actionPerformed(ActionEvent e) {
 				sc.quit_scoreboard();
 				frame.setVisible(false);
+				frame2.setVisible(true);
 			}
 		});
 		panel.add(save);
