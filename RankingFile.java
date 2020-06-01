@@ -1,3 +1,4 @@
+package gui;
 import java.io.FileWriter; 
 import java.io.IOException; 
 import java.io.FileNotFoundException; 
@@ -8,7 +9,7 @@ import java.util.*;
 
 class RankingFile {
 	
-	private static String DATA_FILE= "ranking.txt";
+	private static String DATA_FILE= "C:\\JYE_HOME\\JAVA\\javateamplay\\src\\gui\\ranking.txt";
 	private ArrayList<File1> filedata;
 
 	//Constructor
@@ -20,9 +21,9 @@ class RankingFile {
 	public String[][] getvalues(){
 		String values[][] = new String[filedata.size()][3];
 		for(int i=0;i<filedata.size();i++) {
-			values[i][0]= "               "+String.valueOf(filedata.get(i).getRanking())+"위";
-			values[i][1]= "             "+filedata.get(i).getName();
-			values[i][2]= "               "+String.valueOf(filedata.get(i).getWin_number());			System.out.println(values[i][0]+values[i][1]+values[i][2]);
+			values[i][0]= String.valueOf(filedata.get(i).getRanking())+"위";
+			values[i][1]= filedata.get(i).getName();
+			values[i][2]= String.valueOf(filedata.get(i).getWin_number());			System.out.println(values[i][0]+values[i][1]+values[i][2]);
 		}
 		return values;
 	}
@@ -102,6 +103,8 @@ class RankingFile {
 		      }
 		      filedata.add(temp);
 		}
+		sort_ranking(0, filedata.size()-1);
+		save();
   	}  
 	
 	//Update ranking numbers based on number of wins
@@ -141,7 +144,7 @@ class RankingFile {
 	}
   
   
-	//Print Ranking (automatically load, update, save)
+	/*//Print Ranking (automatically load, update, save)
 	public void print_ranking(Player p1, Player p2) {
 		load();
 		update_players(p1, p2);
@@ -153,5 +156,5 @@ class RankingFile {
 			//System.out.println("  "+filedata.get(i).getRanking()+"위         "+filedata.get(i).getName()+"       "+filedata.get(i).getWin_number());
 		}
 		save();
-	}
+	}*/
 }
