@@ -554,7 +554,7 @@ class TargetImage extends JPanel{
 	public void paint(Graphics g) {
 		super.paint(g);
 		Dimension d=new Dimension(400,200);
-		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\SY-Laptop\\Desktop\\JAVATEAM\\bigTarget.png");
+		Image img=Toolkit.getDefaultToolkit().getImage("bigTarget.png");
 		g.drawImage(img,0,0,d.width,d.height,this);
 	}
 }
@@ -566,7 +566,7 @@ class UserImage1 extends JPanel{
 	public void paint(Graphics g) {
 		super.paint(g);
 		Dimension d=new Dimension(220,70);
-		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\SY-Laptop\\Desktop\\JAVATEAM\\playerRabbit2.png");
+		Image img=Toolkit.getDefaultToolkit().getImage("playerRabbit2.png");
 		g.drawImage(img,0,0,d.width,d.height,this);
 	}
 }
@@ -576,7 +576,7 @@ class UserImage2 extends JPanel{
 	public void paint(Graphics g) {
 		super.paint(g);
 		Dimension d=new Dimension(200,70);
-		Image img=Toolkit.getDefaultToolkit().getImage("C:\\Users\\SY-Laptop\\Desktop\\JAVATEAM\\playerTiger2.png");
+		Image img=Toolkit.getDefaultToolkit().getImage("playerTiger2.png");
 		g.drawImage(img,0,0,d.width,d.height,this);
 	}
 }
