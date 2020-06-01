@@ -367,10 +367,15 @@ class PlayPage{
 		
 		//사용자 이미지, Shoot버튼을 누를때마다 변경되게 하기
 		UserImage1 userimage1=new UserImage1();
+		UserImage2 userimage2=new UserImage2();
 		frame.add(userimage1);
+		frame.add(userimage2);
 		userimage1.setVisible(true);
+		userimage2.setVisible(false);
 		userimage1.setLayout(null);
+		userimage2.setLayout(null);
 		userimage1.setBounds(0, 250, 220, 70);
+		userimage2.setBounds(0, 250, 220, 70);
 		Label turnOfUser=new Label(rabbitName);
 		
 		//Conditions, 랜덤값을 객체 생성해서 받아온다음 Label생성해서 합쳐서 적용하면 됨
@@ -438,12 +443,8 @@ class PlayPage{
 					double delta_x = (pointlbl.getX() - 195)/100.0;
 					double delta_y = (pointlbl.getY() - 113)/100.0;
 					rabbit.run(delta_x, delta_y);
-					UserImage2 userimage2=new UserImage2();
-					frame.add(userimage2);
+					userimage1.setVisible(false);
 					userimage2.setVisible(true);
-					//userimage1.setVisible(false);
-					userimage2.setLayout(null);
-					userimage2.setBounds(0, 250, 220, 70);
 					turnOfUser.setText(tigerName);
 					targetimage.requestFocus();
 					wind.setText(tiger.return_windstr());
@@ -454,12 +455,8 @@ class PlayPage{
 					double delta_x = (pointlbl.getX() - 195)/100.0;
 					double delta_y = (pointlbl.getY() - 90)/100.0;
 					tiger.run(delta_x, delta_y);
-					UserImage1 userimage1=new UserImage1();
-					frame.add(userimage1);
 					userimage1.setVisible(true);
-					//userimage2.setVisible(false);
-					userimage1.setLayout(null);
-					userimage1.setBounds(0, 250, 220, 70);
+					userimage2.setVisible(false);
 					turnOfUser.setText(rabbitName);
 					targetimage.requestFocus();
 					wind.setText(rabbit.return_windstr());
