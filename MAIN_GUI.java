@@ -220,12 +220,13 @@ class SecondPage{
 class Scoreboard{
 	private String score[][]=new String[11][3];
 	private String scorelevel[]= {"STAGE","Rabbit","Tiger"};
+	JFrame frame2;
 	private JTable table;
-
+	private JPanel winpanel;
 	//점수판 띄우기
 	public Scoreboard(Player p1, Player p2) {
 		Dimension dim=new Dimension(150,400);
-		JFrame frame2=new JFrame("**Score Board**");
+		frame2=new JFrame("**Score Board**");
 		frame2.setLocation(790,400);
 		frame2.setPreferredSize(dim);
 		frame2.setResizable(false);
@@ -250,7 +251,7 @@ class Scoreboard{
 			tcm.getColumn(i).setCellRenderer(model_center);
 		}
 
-		table.setRowHeight(30);
+		table.setRowHeight(27);
 		table.setBackground(Color.gray);
 		table.setForeground(Color.white);
 		table.setVisible(true);
@@ -268,6 +269,43 @@ class Scoreboard{
 		}
 		table.setValueAt(p1.sum_score(),10,1);
 		table.setValueAt(p2.sum_score(),10,2);
+	}
+	
+	//점수판 마지막에 승패여부 보여주는 함수
+	public void ShowWIN(Player p1, Player p2) {
+		Container contentPane=frame2.getContentPane();
+		FlowLayout layout=new FlowLayout();
+		winpanel= new JPanel(layout);
+		winpanel.setLayout(new GridLayout(1,1));
+		JLabel win;
+		if(p1.is_win(p2)==1){
+			win=new JLabel("Rabbit WIN!");
+		}
+		else if(p1.is_win(p2)==-1) {
+			win=new JLabel("Tiger WIN!");
+		}
+		else {
+			win=new JLabel("Draw!");
+		}
+		Font font1=new Font("Helvica",Font.BOLD,25);
+		
+		win.setForeground(Color.black);
+		win.setBackground(Color.GRAY);
+		win.setHorizontalAlignment(SwingConstants.CENTER);
+		win.setVerticalAlignment(SwingConstants.CENTER);
+		win.setBounds(800, 750, 150,100);
+		win.setSize(150,50);
+		win.setFont(font1);
+		
+		win.setVisible(true);
+		winpanel.add(win);
+		winpanel.setVisible(true);
+		frame2.add(winpanel);
+		contentPane.add(winpanel,BorderLayout.SOUTH);
+		frame2.setVisible(true);
+	}
+	public void quit_scoreboard() {
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
 
@@ -406,7 +444,9 @@ class PlayPage{
 					audience.setText(rabbit.return_crowdstr());
 				    pointlbl.setLocation(195, 90);
 				    if(rabbit.get_round()+tiger.get_round()==20) {
+				    	sc.ShowWIN(rabbit, tiger);
 				    	RankPage next = new RankPage();
+				    	next.ShowRanking_end(rabbit,tiger,sc, frame); //player 정보 업데이트 + save버튼
 				    }
 
 				}
@@ -436,47 +476,79 @@ class PlayPage{
 }
 //Rank 페이지
 class RankPage{
+	private String conditions[]= {"Rank","Name","Number of Win"};
+	private String values[][];
+	private JFrame frame=new JFrame("**Game Ranking**");
+	private RankingFile rf = new RankingFile();
+	
+	//Constructor -랭킹 프레임 만들기
 	public RankPage() {
 		Dimension dim =new Dimension (400,300);
-		JFrame frame=new JFrame("**Game Ranking**");
 		frame.setLocation(200,400);
 		frame.setPreferredSize(dim);
 		frame.setResizable(false);
-		RankingFile rf = new RankingFile();
-		int filesize=rf.getfiledata();
+		frame.setFont(new Font("Helvetica",Font.BOLD,12));
+	}
+	
+	//home페이지에서 보여주는 랭킹(save 버튼 없음)
+	public void ShowRanking_home() {
 		rf.load();
-		
-		
-		String conditions[]= {"Rank","Name","Number of Win"};
-		String values[][]= rf.getvalues();
+		values= rf.getvalues();
 		DefaultTableModel model=new DefaultTableModel(values,conditions);
 		JTable table=new JTable(model);
 		JScrollPane scrollpane =new JScrollPane(table);
+		DefaultTableCellRenderer model_center = new DefaultTableCellRenderer();
+		model_center.setHorizontalAlignment(SwingConstants.CENTER);
+		TableColumnModel tcm = table.getColumnModel() ;
+		for (int i = 0; i < tcm.getColumnCount(); i++) {
+			tcm.getColumn(i).setCellRenderer(model_center);
+		}
+
+		table.setRowHeight(30);
+		table.setBackground(Color.gray);
+		table.setForeground(Color.white);
+		frame.add(scrollpane,BorderLayout.CENTER);
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	//게임 후에 보여주는 랭킹(save 버튼존재)
+	public void ShowRanking_end(Player p1, Player p2, Scoreboard sc, JFrame frame2) {
+		rf.load();
+		rf.update_players(p1, p2);
+		values= rf.getvalues();
+		DefaultTableModel model=new DefaultTableModel(values,conditions);
+		JTable table=new JTable(model);
+		JScrollPane scrollpane =new JScrollPane(table);
+		DefaultTableCellRenderer model_center = new DefaultTableCellRenderer();
+		model_center.setHorizontalAlignment(SwingConstants.CENTER);
+		TableColumnModel tcm = table.getColumnModel() ;
+		for (int i = 0; i < tcm.getColumnCount(); i++) {
+			tcm.getColumn(i).setCellRenderer(model_center);
+		}
+
+		table.setRowHeight(30);
+		table.setBackground(Color.gray);
+		table.setForeground(Color.white);
 		JPanel panel =new JPanel();
 		JButton save = new JButton("Save");
 		save.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				rf.save();
+				sc.quit_scoreboard();
+				frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 		});
 		panel.add(save);
-		frame.add(scrollpane,BorderLayout.CENTER);
 		frame.add(panel,BorderLayout.SOUTH);
+		frame.add(scrollpane,BorderLayout.CENTER);
 		frame.pack();
 		frame.setVisible(true);
-
-			//conditionTable.setValueAt(1,1); 이런식ㅇ로 값 변경
-		/*
-		 * 추가 방법
-		 * String inputStr[]=new String[3];
-		 * model.addRow(inputStr);
-		 */
-		
-		//conditionTable.setValueAt(1,1); 이런식ㅇ로 값 변경
 	}
-	
 }
+
 //과녁 기본 이미지 
 class TargetImage extends JPanel{
 	@Override
