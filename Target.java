@@ -1,28 +1,20 @@
 
 public class Target {
 	private Crowd crowd;
-	private static int TARGET_X;
-	private static int TARGET_HEIGHT;
 	private static int TARGET_MID;
-	private static int TARGET_WIDTH;
 	
 	public Target(Crowd crowd) {
 		this.crowd = crowd;
-		TARGET_X = 100;
-		TARGET_HEIGHT = 2;
-		TARGET_MID = TARGET_HEIGHT/2;
-		TARGET_WIDTH = 2;
+		TARGET_MID = 1;
 	}
 	
 	public int decide_score(double y, double z, char type, int condition){
-		//double delta = Math.abs(z - TARGET_MID);
-		System.out.printf("Noise level: %.2f\n",crowd.get_noiselevel());
 		double delta;
 		if(type == 't') {
-			delta = Math.sqrt((y-0)*(y-0)+(z-1)*(z-1))+crowd.get_noiselevel()/50-(condition)/75;
+			delta = Math.sqrt((y-0)*(y-0)+(z-TARGET_MID)*(z-TARGET_MID))+crowd.get_noiselevel()/50-(condition)/75;
 		}
 		else if(type == 'r') {
-			delta = Math.sqrt((y-0)*(y-0)+(z-1)*(z-1))+crowd.get_noiselevel()/100-(condition)/100;
+			delta = Math.sqrt((y-0)*(y-0)+(z-TARGET_MID)*(z-TARGET_MID))+crowd.get_noiselevel()/100-(condition)/100;
 		}
 		else {
 			delta = 0;
@@ -40,9 +32,4 @@ public class Target {
 		else if(delta <= 1.0) return 1;
 		else return 0;
 	}
-	
-	/*public boolean is_hit(int x, int y) {
-		
-	}*/
-	
 }

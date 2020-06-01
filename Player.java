@@ -54,10 +54,7 @@ public class Player {
 	}
 	
 	public void run(double a, double b) {
-		wind.print_wind();
 		angle.set(3+a,b);
-		angle.print_angle();
-
 		Target target = new Target(crowd);
 		Arrow arrow = new Arrow(gravity, wind, power, angle);
 				
@@ -69,7 +66,6 @@ public class Player {
 			real_z = arrow.fz();
 			x = (int)Math.floor(real_x);
 		}while(x!=100);
-		System.out.printf("(x,y,z): (%.2f, %.2f, %.2f)\n",real_x,real_y,real_z);
 		
 		score_arr[round++] =target.decide_score(real_y, real_z, type, condition);
 		condition = score_arr[round -1];

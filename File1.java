@@ -1,5 +1,5 @@
+public class File1{
 
-public class File1 {
 	private int ranking;
 	private String name;
 	private int win_number;
@@ -19,10 +19,6 @@ public class File1 {
   	public int getRanking() {
 		return ranking;
 	}
-  	
-  	public String getRanking_str() {
-		return String.valueOf(ranking);
-	}
 
   	public void setRanking(int ranking){
   		this.ranking=ranking;
@@ -39,16 +35,14 @@ public class File1 {
   	public int getWin_number() {
 		return win_number;
 	}
-  	
   	public String getWin_number_str() {
 		return String.valueOf(win_number);
 	}
-
   	public void setWin_number(int win_number){
   		this.win_number=win_number;
   	}
-  
 	public void plusWin_number(){
 		win_number++;
 	}
 }
+

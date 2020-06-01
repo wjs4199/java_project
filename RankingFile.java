@@ -8,7 +8,7 @@ import java.util.*;
 
 class RankingFile {
 	
-	private static String DATA_FILE= "C:\\JYE_HOME\\JAVA\\javateamplay\\src\\gui\\ranking.txt";
+	private static String DATA_FILE= "ranking.txt";
 	private ArrayList<File1> filedata;
 
 	//Constructor
@@ -22,7 +22,7 @@ class RankingFile {
 		for(int i=0;i<filedata.size();i++) {
 			values[i][0]= String.valueOf(filedata.get(i).getRanking())+"위";
 			values[i][1]= filedata.get(i).getName();
-			values[i][2]= String.valueOf(filedata.get(i).getWin_number());			System.out.println(values[i][0]+values[i][1]+values[i][2]);
+			values[i][2]= String.valueOf(filedata.get(i).getWin_number());
 		}
 		return values;
 	}
@@ -141,19 +141,4 @@ class RankingFile {
 		    }
 		}
 	}
-  
-  
-	/*//Print Ranking (automatically load, update, save)
-	public void print_ranking(Player p1, Player p2) {
-		load();
-		update_players(p1, p2);
-		sort_ranking(0, filedata.size()-1);
-		System.out.println("===============Ranking==============="); //37
-		System.out.println("Ranking        Player name        Win"); // 7 11 3
-		for(int i=0;i<10;i++) {
-			System.out.printf("%7d        %11s        %3d\n", filedata.get(i).getRanking(), filedata.get(i).getName(), filedata.get(i).getWin_number());
-			//System.out.println("  "+filedata.get(i).getRanking()+"위         "+filedata.get(i).getName()+"       "+filedata.get(i).getWin_number());
-		}
-		save();
-	}*/
 }
