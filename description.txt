@@ -1,0 +1,4 @@
+Archery game - Rabbit and Tiger
+
+The Player who get higher score is winner at the end of the game. You should consider Wind and Audience conditions which is random. You can control aim with ArrowKeys from Keyboard.
+Shoot arrows, Beat your opponent, and Put your name on a Rank!
