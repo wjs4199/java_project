@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
-//¸Ç Ã³À½ ½ÃÀÛ ÆäÀÌÁö ÀÌ¹ÌÁö
+//ë§¨ ì²˜ìŒ ì‹œì‘ í˜ì´ì§€ ì´ë¯¸ì§€
 class StartPanelImage extends JPanel{
 	
 	@Override
