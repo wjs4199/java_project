@@ -8,11 +8,15 @@ public class Explanation {
 	
 	//Constructor - 프레임 만들기
 	public Explanation() {
-		Dimension dim =new Dimension (380,380);
+		Dimension dim =new Dimension (400,400);
 		frame.setPreferredSize(dim);
 		frame.setResizable(false);
 		frame.setFont(new Font("Helvetica",Font.BOLD,12));
-		frame.setBounds(160,165, 380, 380);
+		frame.setBounds(160,170, 400, 400);
+		
+		ExplainImage explainimage=new ExplainImage();
+		frame.add(explainimage);
+		explainimage.setVisible(true);
 		frame.setVisible(true);
 	}
 }
