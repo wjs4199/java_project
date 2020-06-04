@@ -6,14 +6,14 @@ public class MAIN_GUI {
 	public static final int ARROW_SPEED = 10;
 	public static void main(String[] args) {
 		
-		//ÇÁ·¹ÀÓ ¼³Á¤ 400*400»çÀÌÁî·Î
+		//í”„ë ˆì„ ì„¤ì • 400*400ì‚¬ì´ì¦ˆë¡œ
 		Dimension dim=new Dimension(400,400);
 		JFrame frame=new JFrame("The Rabbit and Tiger");	
-		frame.setLocation(150, 150);	//Ã¢ À§Ä¡ ¼³Á¤
-		frame.setPreferredSize(dim);	//Ã¢ Å©±â ¼³Á¤
-		frame.setResizable(false);		//Ã¢ Å©±â Á¶Àı ºÒ°¡ ¼³Á¤
+		frame.setLocation(150, 150);	//ì°½ ìœ„ì¹˜ ì„¤ì •
+		frame.setPreferredSize(dim);	//ì°½ í¬ê¸° ì„¤ì •
+		frame.setResizable(false);		//ì°½ í¬ê¸° ì¡°ì ˆ ë¶ˆê°€ ì„¤ì •
 
-		//Ã¹¹øÂ° ÆäÀÌÁö·Î frame °´Ã¼ Àü´Ş
+		//ì²«ë²ˆì§¸ í˜ì´ì§€ë¡œ frame ê°ì²´ ì „ë‹¬
 		StartPage startpage=new StartPage(frame);
 	
 		frame.pack();
