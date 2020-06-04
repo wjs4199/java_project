@@ -1,4 +1,4 @@
-Archery game - Rabbit and Tiger
+Two-Player game. The Player with the higher total score wins. You can control aim with ArrowKeys from Keyboard. Good luck!
 
-The Player who get higher score is winner at the end of the game. You should consider Wind and Audience conditions which is random. You can control aim with ArrowKeys from Keyboard.
-Shoot arrows, Beat your opponent, and Put your name on a Rank!
+* Rabbit => more affected by feelings swings and noise than tiger.
+* Tiger => less affected by feelings swings and noise than rabbit.
