@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
-//»ç¿ëÀÚ ÀÌ¹ÌÁö, Åä³¢¶û »çÀÚ
+//ì‚¬ìš©ì ì´ë¯¸ì§€, í† ë¼ë‘ ì‚¬ì
 class UserImage1 extends JPanel{
 	
 	@Override
