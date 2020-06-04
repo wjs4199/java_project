@@ -15,14 +15,14 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-//Rank ÆäÀÌÁö
+//Rank í˜ì´ì§€
 class RankPage{
 	private String conditions[]= {"Rank","Name","Number of Win"};
 	private String values[][];
 	private JFrame frame=new JFrame("**Game Ranking**");
 	private RankingFile rf = new RankingFile();
 
-	//Constructor -·©Å· ÇÁ·¹ÀÓ ¸¸µé±â
+	//Constructor -ë­í‚¹ í”„ë ˆì„ ë§Œë“¤ê¸°
 	public RankPage() {
 		Dimension dim =new Dimension (400,300);
 		frame.setLocation(690,150);
@@ -52,7 +52,7 @@ class RankPage{
 		frame.setVisible(true);
 	}
 
-	//°ÔÀÓ ÈÄ¿¡ º¸¿©ÁÖ´Â ·©Å·(save ¹öÆ°Á¸Àç)
+	//ê²Œì„ í›„ì— ë³´ì—¬ì£¼ëŠ” ë­í‚¹(save ë²„íŠ¼ì¡´ì¬)
 	public void showRanking_end(Player p1, Player p2, Scoreboard sc, JFrame frame2) {
 		rf.update_players(p1, p2);
 		values= rf.getvalues();
