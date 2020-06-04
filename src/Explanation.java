@@ -6,7 +6,7 @@ public class Explanation {
 	
 	private JFrame frame=new JFrame("Explanation");
 	
-	//Constructor - га╥╧юс ╦╦╣И╠Б
+	//Constructor - ц┤ц│б╥б╧ц─ц⌠ б╦б╦б╣ц╘б╠ц╒
 	public Explanation() {
 		Dimension dim =new Dimension (400,400);
 		frame.setPreferredSize(dim);
