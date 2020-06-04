@@ -11,10 +11,10 @@ public class Target {
 	public int decide_score(double y, double z, char type, int condition){
 		double delta;
 		if(type == 't') {
-			delta = Math.sqrt((y-0)*(y-0)+(z-TARGET_MID)*(z-TARGET_MID))+crowd.get_noiselevel()/50-(condition)/75;
+			delta = Math.sqrt((y-0)*(y-0)+(z-TARGET_MID)*(z-TARGET_MID))+crowd.get_noiselevel()/100-(condition)/100;
 		}
 		else if(type == 'r') {
-			delta = Math.sqrt((y-0)*(y-0)+(z-TARGET_MID)*(z-TARGET_MID))+crowd.get_noiselevel()/100-(condition)/100;
+			delta = Math.sqrt((y-0)*(y-0)+(z-TARGET_MID)*(z-TARGET_MID))+crowd.get_noiselevel()/80-(condition)/80;
 		}
 		else {
 			delta = 0;
@@ -28,8 +28,6 @@ public class Target {
 		else if(delta <= 0.6) return 5;
 		else if(delta <= 0.7) return 4;
 		else if(delta <= 0.8) return 3;
-		else if(delta <= 0.9) return 2;
-		else if(delta <= 1.0) return 1;
-		else return 0;
+		else return 2;
 	}
 }

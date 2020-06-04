@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MAIN_GUI {
-	
+	public static final int SLEEP_TIME = 10;
+	public static final int ARROW_SPEED = 10;
 	public static void main(String[] args) {
 		
 		//프레임 설정 400*400사이즈로

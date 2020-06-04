@@ -60,6 +60,12 @@ class SecondPage{
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
+		//설명과 설명 버튼 추가할 패널
+		JPanel explainpanel=new JPanel();
+		explainpanel.setLayout(layout);
+		explainpanel.setBounds(50, 200, 300, 120);
+
+				//설명 텍스트
 		JTextArea txt = new JTextArea(descript_str);
 		txt.setFont(font);
 		txt.setLineWrap(true);
@@ -67,7 +73,24 @@ class SecondPage{
 		txt.setOpaque(false);
 		txt.setEditable(false);
 		txt.setVisible(true);
-		txt.setBounds(50, 300, 300, 100);
+		txt.setBounds(50, 200, 300, 90);
+		//추가설명 버튼
+		JButton explain=new JButton("Explanation");
+		explain.setBackground(Color.black);
+		explain.setForeground(Color.yellow);
+		explain.setFont(new Font("Helvetica",Font.PLAIN,17));
+		explain.setVisible(true);
+		explain.setHorizontalAlignment(SwingConstants.CENTER);
+		explain.setVerticalAlignment(SwingConstants.CENTER);
+		//explain.setBounds(100, 300, 80, 60);
+		ActionListener explainListener=new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			Explanation ex=new Explanation();
+			}
+		};
+		explain.addActionListener(explainListener);
+		explainpanel.add(explain,BorderLayout.EAST);
 		
 		//이 텍스트필드가 사용자가 입력할 수 있게 해줌
 		TextField rabbitIdText=new TextField("Name",20);
@@ -83,6 +106,8 @@ class SecondPage{
 		mainPanel.add(tigerID);
 		
 		mainPanel.add(txt);
+		mainPanel.add(explainpanel);
+		mainPanel.add(explainpanel, BorderLayout.CENTER);
 
 		//마지막으로 프레임에 적용
 		contentPane.add(mainPanel);

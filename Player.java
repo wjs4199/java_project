@@ -7,14 +7,15 @@ public class Player {
 	private Power power = new Power();
 	private Angle angle = new Angle();
 	private Crowd crowd = new Crowd();
+	private Arrow arrow;
 	private int condition;
 	private String name;
 	private int round;
 	private int[] score_arr = new int[10];
-	private int outcome;
 	private char type;
 	
 	public Player(char type) {
+		arrow = new Arrow(gravity, wind, power, angle);
 		round = 0;
 		condition = 5;
 		name = "NULL";
@@ -27,7 +28,7 @@ public class Player {
 	public Wind get_wind() {return wind;}
 	public Crowd get_crowd() {return crowd;}
 	public String get_SCORE_str(int i) {return String.valueOf(score_arr[i]);}
-	
+	public int get_condition() {return condition;}
 	
 	public int sum_score() {
 		int sum =0;
@@ -43,21 +44,28 @@ public class Player {
 	
 	public String return_windstr() {
 		DecimalFormat form1 = new DecimalFormat("#.#");
-		DecimalFormat form2 = new DecimalFormat("#");
-		String windstr = "Speed: " + form1.format(this.get_wind().get_speed()*10) + " Direct: " + form2.format(this.get_wind().get_direction());
+		String windstr = "Wind Speed: " + form1.format(this.get_wind().get_speed()*10);
 		return windstr;
 	}
 	public String return_crowdstr() {
-		DecimalFormat form = new DecimalFormat("#.##");
-		String audiencestr = "Audience: " + form.format(this.get_crowd().get_noiselevel());
+		DecimalFormat form = new DecimalFormat("#");
+		String audiencestr = "Noise: " + form.format(this.get_crowd().get_noiselevel());
+		audiencestr += ",";
 		return audiencestr;
+	}
+	public String return_conditionstr() {
+		if(condition >= 8) return "Feels Good";
+		else if(condition >= 4) return "Feels Soso";
+		else return "Feels Bad";
+	}
+	public Arrow get_arrow() {
+		return arrow;
 	}
 	
 	public void run(double a, double b) {
 		angle.set(3+a,b);
 		Target target = new Target(crowd);
-		Arrow arrow = new Arrow(gravity, wind, power, angle);
-				
+		arrow = new Arrow(gravity, wind, power, angle);
 		int x;
 		double real_x, real_y, real_z;
 		do {
