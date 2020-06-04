@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
-//°ú³á ±âº» ÀÌ¹ÌÁö 
+//Â°ÃºÂ³Ã¡ Â±Ã¢ÂºÂ» Ã€ÃŒÂ¹ÃŒÃÃ¶ 
 class TargetImage extends JPanel{
 	private double direction;
 	public TargetImage(double d) {
