@@ -1,0 +1,18 @@
+import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.JFrame;
+	
+public class Explanation {
+	
+	private JFrame frame=new JFrame("Explanation");
+	
+	//Constructor - 프레임 만들기
+	public Explanation() {
+		Dimension dim =new Dimension (380,380);
+		frame.setPreferredSize(dim);
+		frame.setResizable(false);
+		frame.setFont(new Font("Helvetica",Font.BOLD,12));
+		frame.setBounds(160,165, 380, 380);
+		frame.setVisible(true);
+	}
+}
