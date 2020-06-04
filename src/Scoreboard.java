@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-//Á¡¼öÆÇ class
+//ÃÂ¡Â¼Ã¶Ã†Ã‡ class
 class Scoreboard{
 	private String score[][]=new String[11][3];
 	private String scorelevel[]= {"STAGE","Rabbit","Tiger"};
@@ -24,7 +24,7 @@ class Scoreboard{
 	private JTable table;
 	private JPanel winpanel;
 
-	//Á¡¼öÆÇ ¶ç¿ì±â
+	//ÃÂ¡Â¼Ã¶Ã†Ã‡ Â¶Ã§Â¿Ã¬Â±Ã¢
 	public Scoreboard(Player p1, Player p2) {
 		Dimension dim=new Dimension(150,400);
 
