@@ -17,10 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-//µÎ¹øÂ° ÆäÀÌÁö, IDÀÔ·ÂÇÏ´Â ÆäÀÌÁö
+//ë‘ë²ˆì§¸ í˜ì´ì§€, IDì…ë ¥í•˜ëŠ” í˜ì´ì§€
 class SecondPage{
 	
-	//ÀÌ¸§ °¡Á®¿Í¾ßÇÒ¶§ ¿©±â¼­ °¡Á®¿À±â
+	//ì´ë¦„ ê°€ì ¸ì™€ì•¼í• ë•Œ ì—¬ê¸°ì„œ ê°€ì ¸ì˜¤ê¸°
 	public String rabbitName;
 	public String tigerName;
 	
@@ -29,7 +29,7 @@ class SecondPage{
 		Container contentPane=frame.getContentPane();
 		
 		
-		//ÆĞ³Î 2°³¸¦ ¸¸µé¾î¼­ mainPanel¿¡ ³ÖÀº µÚ Container¿¡ Àû¿ë
+		//íŒ¨ë„ 2ê°œë¥¼ ë§Œë“¤ì–´ì„œ mainPanelì— ë„£ì€ ë’¤ Containerì— ì ìš©
 		FlowLayout layout=new FlowLayout();
 		JPanel mainPanel=new JPanel();
 		mainPanel.setSize(400, 300);
@@ -41,9 +41,9 @@ class SecondPage{
 		JPanel tigerID=new JPanel();
 		tigerID.setLayout(layout);
 		tigerID.setVisible(true);
-		JPanel buttonPanel=new JPanel();	//Panel »ı¼º
+		JPanel buttonPanel=new JPanel();	//Panel ìƒì„±
 		
-		//¶óº§ ¼³Á¤
+		//ë¼ë²¨ ì„¤ì •
 		Font font=new Font("Helvica",Font.BOLD,13);
 		Label rabbitlbl=new Label("Rabbit");
 		rabbitlbl.setFont(font);
@@ -60,6 +60,13 @@ class SecondPage{
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
+		
+		//ì„¤ëª…ê³¼ ì„¤ëª… ë²„íŠ¼ ì¶”ê°€í•  íŒ¨ë„
+		JPanel explainpanel=new JPanel();
+		explainpanel.setLayout(layout);
+		explainpanel.setBounds(50, 200, 300, 120);
+		
+		//ì„¤ëª… í…ìŠ¤íŠ¸
 		JTextArea txt = new JTextArea(descript_str);
 		txt.setFont(font);
 		txt.setLineWrap(true);
@@ -67,13 +74,31 @@ class SecondPage{
 		txt.setOpaque(false);
 		txt.setEditable(false);
 		txt.setVisible(true);
-		txt.setBounds(50, 300, 300, 100);
+		txt.setBounds(50, 200, 300, 90);
 		
-		//ÀÌ ÅØ½ºÆ®ÇÊµå°¡ »ç¿ëÀÚ°¡ ÀÔ·ÂÇÒ ¼ö ÀÖ°Ô ÇØÁÜ
+		//ì¶”ê°€ì„¤ëª… ë²„íŠ¼
+		JButton explain=new JButton("Explanation");
+		explain.setBackground(Color.black);
+		explain.setForeground(Color.yellow);
+		explain.setFont(new Font("Helvetica",Font.PLAIN,17));
+		explain.setVisible(true);
+		explain.setHorizontalAlignment(SwingConstants.CENTER);
+		explain.setVerticalAlignment(SwingConstants.CENTER);
+		//explain.setBounds(100, 300, 80, 60);
+		ActionListener explainListener=new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Explanation ex=new Explanation();
+			}
+		};
+		explain.addActionListener(explainListener);
+		explainpanel.add(explain,BorderLayout.EAST);
+		
+		//ì´ í…ìŠ¤íŠ¸í•„ë“œê°€ ì‚¬ìš©ìê°€ ì…ë ¥í•  ìˆ˜ ìˆê²Œ í•´ì¤Œ
 		TextField rabbitIdText=new TextField("Name",20);
 		TextField tigerIdText=new TextField("Name",20);
 		
-		//°¢ ÆĞ³Îµé¿¡ Àû¿ëÇØÁÖ±â
+		//ê° íŒ¨ë„ë“¤ì— ì ìš©í•´ì£¼ê¸°
 		rabbitID.add(rabbitlbl);
 		rabbitID.add(rabbitIdText);
 		mainPanel.add(rabbitID);
@@ -81,13 +106,14 @@ class SecondPage{
 		tigerID.add(tigerlbl);
 		tigerID.add(tigerIdText);
 		mainPanel.add(tigerID);
-		
 		mainPanel.add(txt);
-
-		//¸¶Áö¸·À¸·Î ÇÁ·¹ÀÓ¿¡ Àû¿ë
+		mainPanel.add(explainpanel);
+		mainPanel.add(explainpanel, BorderLayout.CENTER);
+		
+		//ë§ˆì§€ë§‰ìœ¼ë¡œ í”„ë ˆì„ì— ì ìš©
 		contentPane.add(mainPanel);
 		
-		//½ÃÀÛ ¹öÆ° »ı¼º
+		//ì‹œì‘ ë²„íŠ¼ ìƒì„±
 		JButton startButton=new JButton("START!");
 		startButton.setBackground(Color.gray);
 		startButton.setForeground(Color.WHITE);
@@ -96,7 +122,7 @@ class SecondPage{
 		startButton.setVerticalAlignment(SwingConstants.CENTER);
 		startButton.setSize(180, 200);
 		startButton.setVisible(true);
-		//½ÃÀÛ¹öÆ° ´©¸¦°æ¿ì ³Ñ¾î°¡±â
+		//ì‹œì‘ë²„íŠ¼ ëˆ„ë¥¼ê²½ìš° ë„˜ì–´ê°€ê¸°
 		ActionListener startListener=new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
