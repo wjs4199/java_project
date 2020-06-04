@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-//ÇÃ·¹ÀÌ ÆäÀÌÁö
+//í”Œë ˆì´ í˜ì´ì§€
 class PlayPage{
 	
 	
@@ -26,12 +26,12 @@ class PlayPage{
 		rabbit.set_NAME(rabbitName);
 		Player tiger = new Player('t');
 		tiger.set_NAME(tigerName);
-		//Á¡¼öÆÇ class Constructor
-		Scoreboard sc= new Scoreboard(rabbit,tiger); //Player p1,Player p2 º¸³»Áà¾ßÇÔ
+		//ì ìˆ˜íŒ class Constructor
+		Scoreboard sc= new Scoreboard(rabbit,tiger); //Player p1,Player p2 ë³´ë‚´ì¤˜ì•¼í•¨
 		
 		Container contentPane=frame.getContentPane();
 		
-		//°ú³á ÀÌ¹ÌÁö, Shoot¹öÆ°ÀÌ ´­¸®¸é °á°ú °ªÀ» ¹Ş¾Æ¼­ ¸Â´Â ÀÌ¹ÌÁö¸¦ Ãâ·Â, ±×¸®°í ´Ù½Ã »ç¶óÁü
+		//ê³¼ë… ì´ë¯¸ì§€, Shootë²„íŠ¼ì´ ëˆŒë¦¬ë©´ ê²°ê³¼ ê°’ì„ ë°›ì•„ì„œ ë§ëŠ” ì´ë¯¸ì§€ë¥¼ ì¶œë ¥, ê·¸ë¦¬ê³  ë‹¤ì‹œ ì‚¬ë¼ì§
 	      
 	    Label pointlbl=new Label("+");
 	    pointlbl.setVisible(true);
@@ -48,7 +48,7 @@ class PlayPage{
 	    targetimage.setBounds(0, 0, 400, 250);
 	    contentPane.add(targetimage);
 		
-		//»ç¿ëÀÚ ÀÌ¹ÌÁö, Shoot¹öÆ°À» ´©¸¦¶§¸¶´Ù º¯°æµÇ°Ô ÇÏ±â
+		//ì‚¬ìš©ì ì´ë¯¸ì§€, Shootë²„íŠ¼ì„ ëˆ„ë¥¼ë•Œë§ˆë‹¤ ë³€ê²½ë˜ê²Œ í•˜ê¸°
 		UserImage1 userimage1=new UserImage1();
 		UserImage2 userimage2=new UserImage2();
 		frame.add(userimage1);
@@ -61,7 +61,7 @@ class PlayPage{
 		userimage2.setBounds(0, 250, 220, 70);
 		Label turnOfUser=new Label(rabbitName);
 		
-		//Conditions, ·£´ı°ªÀ» °´Ã¼ »ı¼ºÇØ¼­ ¹Ş¾Æ¿Â´ÙÀ½ Label»ı¼ºÇØ¼­ ÇÕÃÄ¼­ Àû¿ëÇÏ¸é µÊ
+		//Conditions, ëœë¤ê°’ì„ ê°ì²´ ìƒì„±í•´ì„œ ë°›ì•„ì˜¨ë‹¤ìŒ Labelìƒì„±í•´ì„œ í•©ì³ì„œ ì ìš©í•˜ë©´ ë¨
 		Font font1=new Font("Helvica",Font.BOLD,11);
 		JPanel conditions=new JPanel();
 		conditions.setLayout(null);
@@ -83,7 +83,7 @@ class PlayPage{
 		conditions.add(audience);
 		conditions.add(condition);
 				
-		//¹öÆ° ´©¸¦¶§¸¶´Ù ¾ÆÀÌµğ º¯°æÇØÁÖ±â
+		//ë²„íŠ¼ ëˆ„ë¥¼ë•Œë§ˆë‹¤ ì•„ì´ë”” ë³€ê²½í•´ì£¼ê¸°
 		Font font2=new Font("Helvica",Font.BOLD,16);
 		Label userId=new Label(rabbitName);
 		userId.setFont(font2);
@@ -91,7 +91,7 @@ class PlayPage{
 		conditions.add(userId);
 		contentPane.add(conditions);
 		
-		//SHOOT ¹öÆ°
+		//SHOOT ë²„íŠ¼
 		FlowLayout layout=new FlowLayout();
 		JPanel shootPanel= new JPanel(layout);
 		
@@ -125,7 +125,7 @@ class PlayPage{
 		ActionListener shootListener=new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//ÀÌ¹ÌÁö º¯°æ
+				//ì´ë¯¸ì§€ ë³€ê²½
 				if((turnOfUser.getText()).equals(rabbitName)) {
 					//frame.setVisible(false);
 					double delta_x = (pointlbl.getX() - 195)/100.0;
@@ -167,11 +167,11 @@ class PlayPage{
 							    	RankPage next = new RankPage();
 							    	Dimension dim=new Dimension(400,400);
 									JFrame new_frame=new JFrame("The Rabbit and Tiger");	
-							    	next.showRanking_end(rabbit, tiger, sc, new_frame); //Player Á¤º¸ ¾÷µ¥ÀÌÆ® + save ¹öÆ°
-									new_frame.setLocation(150, 150);	//Ã¢ À§Ä¡ ¼³Á¤
-									new_frame.setPreferredSize(dim);	//Ã¢ Å©±â ¼³Á¤
-									new_frame.setResizable(false);		//Ã¢ Å©±â Á¶Àı ºÒ°¡ ¼³Á¤
-									//Ã¹¹øÂ° ÆäÀÌÁö·Î frame °´Ã¼ Àü´Ş
+							    	next.showRanking_end(rabbit, tiger, sc, new_frame); //Player ì •ë³´ ì—…ë°ì´íŠ¸ + save ë²„íŠ¼
+									new_frame.setLocation(150, 150);	//ì°½ ìœ„ì¹˜ ì„¤ì •
+									new_frame.setPreferredSize(dim);	//ì°½ í¬ê¸° ì„¤ì •
+									new_frame.setResizable(false);		//ì°½ í¬ê¸° ì¡°ì ˆ ë¶ˆê°€ ì„¤ì •
+									//ì²«ë²ˆì§¸ í˜ì´ì§€ë¡œ frame ê°ì²´ ì „ë‹¬
 									StartPage return_to_startpage=new StartPage(new_frame);
 									new_frame.pack();
 									//new_frame.setVisible(true);
@@ -181,14 +181,14 @@ class PlayPage{
 				    		timer.start(); // Go go go!
 				    }
 				}
-				//ÀÌ¸§ º¯°æ
+				//ì´ë¦„ ë³€ê²½
 				if((userId.getText()).equals(rabbitName)) {
 					userId.setText(tigerName);
 				}
 				else {
 					userId.setText(rabbitName);
 				}
-				//shootÇÒ¶§¸¶´Ù ÇÃ·¹ÀÌ¾îÁ¡¼ö ÀĞ¾î¿Í¼­ Á¡¼öÆÇ ¾÷µ¥ÀÌÆ®
+				//shootí• ë•Œë§ˆë‹¤ í”Œë ˆì´ì–´ì ìˆ˜ ì½ì–´ì™€ì„œ ì ìˆ˜íŒ ì—…ë°ì´íŠ¸
 				sc.scorechange(rabbit, tiger); //Player p1, Player p2
 			}
 		};
@@ -198,6 +198,6 @@ class PlayPage{
 		shootPanel.add(shootButton);
 		shootButton.setVisible(true);
 		shootPanel.setVisible(true);
-		contentPane.add(shootPanel,BorderLayout.SOUTH);				//ÇÁ·¹ÀÓ¿¡ ÆĞ³ÎÃß°¡
+		contentPane.add(shootPanel,BorderLayout.SOUTH);				//í”„ë ˆì„ì— íŒ¨ë„ì¶”ê°€
 	}
 }
