@@ -11,34 +11,34 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-//Ã¹¹øÂ° ÆäÀÌÁö
+//ì²«ë²ˆì§¸ í˜ì´ì§€
 class StartPage{
 	
 	public StartPage(JFrame frame){
 		
-		//Ã³À½¿¡ ´ÙÀ½ÁÙ°ú °°ÀÌ COntainer¸¦ ¸¸µé¾î¼­ ÀÌ ¾È¿¡ add ÇÏ´Â Çü½ÄÀÌ °¡Àå ¾ÈÁ¤ÀûÀ¸·Î Àû¿ëµÊ
+		//ì²˜ìŒì— ë‹¤ìŒì¤„ê³¼ ê°™ì´ COntainerë¥¼ ë§Œë“¤ì–´ì„œ ì´ ì•ˆì— add í•˜ëŠ” í˜•ì‹ì´ ê°€ì¥ ì•ˆì •ì ìœ¼ë¡œ ì ìš©ë¨
 		Container contentPane=frame.getContentPane();
 		
 		
-		//Ã¹ ÆäÀÌÁö ÀÌ¹ÌÁö »çÁø »ğÀÔ
+		//ì²« í˜ì´ì§€ ì´ë¯¸ì§€ ì‚¬ì§„ ì‚½ì…
 		StartPanelImage startImage=new StartPanelImage();
 		frame.add(startImage);
 		startImage.setVisible(true);
 		
 		
-		//¹öÆ°À» ³ÖÀ» ÆĞ³Î »ı¼º
+		//ë²„íŠ¼ì„ ë„£ì„ íŒ¨ë„ ìƒì„±
 		FlowLayout layout=new FlowLayout();
 		JPanel startButtonPanel1=new JPanel();
-		startButtonPanel1.setLayout(layout);	//start¹öÆ° ³ÖÀ» ÆĞ³Î »ı¼º
+		startButtonPanel1.setLayout(layout);	//startë²„íŠ¼ ë„£ì„ íŒ¨ë„ ìƒì„±
 		JPanel startButtonPanel2=new JPanel();
-		startButtonPanel2.setLayout(layout);	//rank¹öÆ° ³ÖÀ» ÆĞ³Î »ı¼º
+		startButtonPanel2.setLayout(layout);	//rankë²„íŠ¼ ë„£ì„ íŒ¨ë„ ìƒì„±
 		JPanel startButtonPanel3=new JPanel();
-		startButtonPanel3.setLayout(layout);	//quit¹öÆ° ³ÖÀ» ÆĞ³Î »ı¼º
+		startButtonPanel3.setLayout(layout);	//quitë²„íŠ¼ ë„£ì„ íŒ¨ë„ ìƒì„±
 		JPanel startButtonPanel4=new JPanel();
-		startButtonPanel4.setLayout(layout);	//¹öÆ°µé ÇÕÄ¡´Â ÆĞ³Î »ı¼º
+		startButtonPanel4.setLayout(layout);	//ë²„íŠ¼ë“¤ í•©ì¹˜ëŠ” íŒ¨ë„ ìƒì„±
 
-		//¹öÆ°ÀÇ ¼Ó¼ºµéÀ» °¢°¢ ¼³Á¤, ³ªÁß¿¡ ¼öÁ¤ ¿¹Á¤
-		//Ã¹¹øÂ° ÆäÀÌÁö START ¹öÆ°
+		//ë²„íŠ¼ì˜ ì†ì„±ë“¤ì„ ê°ê° ì„¤ì •, ë‚˜ì¤‘ì— ìˆ˜ì • ì˜ˆì •
+		//ì²«ë²ˆì§¸ í˜ì´ì§€ START ë²„íŠ¼
 		JButton startPageButton1=new JButton("Start");
 		startPageButton1.setBackground(Color.gray);
 		startPageButton1.setForeground(Color.WHITE);
@@ -47,22 +47,22 @@ class StartPage{
 		startPageButton1.setVerticalAlignment(SwingConstants.CENTER);
 		startPageButton1.setSize(180, 60);
 		
-		//Start¹öÆ° Å¬¸¯½Ã Àû¿ë, ´ÙÀ½ÆäÀÌÁö·Î frame °´Ã¼¸¦ ³Ñ°ÜÁÜ
+		//Startë²„íŠ¼ í´ë¦­ì‹œ ì ìš©, ë‹¤ìŒí˜ì´ì§€ë¡œ frame ê°ì²´ë¥¼ ë„˜ê²¨ì¤Œ
 				ActionListener startListener=new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						//±âÁ¸À¸ ÀÌ¹ÌÁö,¹öÆ°Àº ¾Èº¸ÀÌ°Ô ¼³Á¤
+						//ê¸°ì¡´ìœ¼ ì´ë¯¸ì§€,ë²„íŠ¼ì€ ì•ˆë³´ì´ê²Œ ì„¤ì •
 						startImage.setVisible(false);
 						startButtonPanel4.setVisible(false);
 						SecondPage secondpage=new SecondPage(frame);
 						
 					}
 				};
-				//ÀÌ ¾Æ·¡²¨ ¾È½á¼­ 2½Ã°£ ³¯¸² ¿¡¹Ù¾ß
+				//ì´ ì•„ë˜êº¼ ì•ˆì¨ì„œ 2ì‹œê°„ ë‚ ë¦¼ ì—ë°”ì•¼
 				startPageButton1.addActionListener(startListener);	
 				
 				
-		//Ãµ¹øÂ° ÆäÀÌÁö RANK ¹öÆ°   
+		//ì²œë²ˆì§¸ í˜ì´ì§€ RANK ë²„íŠ¼   
 		JButton startPageButton2=new JButton("Rank");
 		startPageButton2.setBackground(Color.gray);
 		startPageButton2.setForeground(Color.WHITE);
@@ -70,7 +70,7 @@ class StartPage{
 		startPageButton2.setHorizontalAlignment(SwingConstants.CENTER);
 		startPageButton2.setVerticalAlignment(SwingConstants.CENTER);
 		startPageButton2.setSize(180, 60);
-		//RankÆäÀÌÁö·Î ÀÌµ¿
+		//Rankí˜ì´ì§€ë¡œ ì´ë™
 		ActionListener rankListener=new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -82,7 +82,7 @@ class StartPage{
 		startPageButton2.addActionListener(rankListener);	
 		
 		
-		//Ã¹¹øÂ° ÆäÀÌÁö Quit ¹öÆ°
+		//ì²«ë²ˆì§¸ í˜ì´ì§€ Quit ë²„íŠ¼
 		JButton startPageButton3=new JButton("Quit");
 		startPageButton3.setBackground(Color.gray);
 		startPageButton3.setForeground(Color.WHITE);
@@ -104,14 +104,14 @@ class StartPage{
 		
 		
 		
-		//°¢ ¹öÆ°ÀÇ À§Ä¡ ÁöÁ¤ÇØ¼­ ÇÑ°³ÀÇ ÆÇ³Ú¿¡ ÁöÁ¤
+		//ê° ë²„íŠ¼ì˜ ìœ„ì¹˜ ì§€ì •í•´ì„œ í•œê°œì˜ íŒë„¬ì— ì§€ì •
 		startButtonPanel4.add(startPageButton1,BorderLayout.WEST);
 		startButtonPanel4.add(startPageButton2,BorderLayout.CENTER);
 		startButtonPanel4.add(startPageButton3,BorderLayout.EAST);
 		
-		//ÇÕÄ£ ¹öÆ° Frame¿¡ Àû¿ë ÀÌ¶§ frame¿¡ ¹Ù·Î Àû¿ëÇÏÁö ¾Ê°í ¸Ç À§¿¡ ¸¸µç Container¿¡ Àû¿ëÇÔ
-		contentPane.add(startButtonPanel4,BorderLayout.SOUTH);				//ÇÁ·¹ÀÓ¿¡ ÆĞ³ÎÃß°¡
-		startButtonPanel4.setVisible(true);	//¹öÆ° Ãß°¡ÇÏ±â
+		//í•©ì¹œ ë²„íŠ¼ Frameì— ì ìš© ì´ë•Œ frameì— ë°”ë¡œ ì ìš©í•˜ì§€ ì•Šê³  ë§¨ ìœ„ì— ë§Œë“  Containerì— ì ìš©í•¨
+		contentPane.add(startButtonPanel4,BorderLayout.SOUTH);				//í”„ë ˆì„ì— íŒ¨ë„ì¶”ê°€
+		startButtonPanel4.setVisible(true);	//ë²„íŠ¼ ì¶”ê°€í•˜ê¸°
 		
 	}
 }
