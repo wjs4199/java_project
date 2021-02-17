@@ -11,6 +11,9 @@ public class Angle extends Variable{
 		theta = Math.toRadians(x);
 		deflection= Math.toRadians(y);
 	}
+	public void print_angle() {
+		System.out.println("Theta: "+Math.toDegrees(theta)+" Deflection: "+Math.toDegrees(deflection));
+	}
 	public Angle get() {
 		return this;
 	}

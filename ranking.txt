@@ -1,14 +1,10 @@
-1:ggggg:85
-2:bbbbb:78
-3:*YEEUN:57
-4:aaaaa:22
-5:*HELLO:13
-6:eeeee:11
-6:hhhhh:11
-6:bbbbb:11
-7:Chan1:6
-8:fffff:2
-8:a:2
-9:eunye:1
-10:Chan2:0
-10:b:0
+1:Name1:32
+2:Name2:18
+3:a:4
+4:b:3
+5:test2:2
+5:Chanhyo:2
+6:Ye Eun:1
+6:Nameq:1
+6:SeungUi:1
+7:test1:0

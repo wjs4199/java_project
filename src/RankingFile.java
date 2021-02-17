@@ -15,7 +15,17 @@ class RankingFile {
 	public RankingFile(){
 		filedata=new ArrayList<>();
 	}
-  
+	public int getfiledata() {return filedata.size();}
+	
+	public String[][] getvalues(){
+		String values[][] = new String[filedata.size()][3];
+		for(int i=0;i<filedata.size();i++) {
+			values[i][0]= String.valueOf(filedata.get(i).getRanking())+"위";
+			values[i][1]= filedata.get(i).getName();
+			values[i][2]= String.valueOf(filedata.get(i).getWin_number());
+		}
+		return values;
+	}
 	//Save updated game ranking history
 	public void save() {
 		FileWriter outputStream = null;
@@ -56,7 +66,7 @@ class RankingFile {
 	}
 
 	//Update the game history of Player1 and Player2 in the original ranking
-	public void update_players(Rabbit p1, Tiger p2) {
+	public void update_players(Player p1, Player p2) {
 		boolean check1= false;
 		boolean check2= false;  
 		for(int i=0;i<filedata.size();i++) {
@@ -92,6 +102,8 @@ class RankingFile {
 		      }
 		      filedata.add(temp);
 		}
+		sort_ranking(0, filedata.size()-1);
+		save();
   	}  
 	
 	//Update ranking numbers based on number of wins
@@ -128,20 +140,5 @@ class RankingFile {
 		    	filedata.get(k).setRanking(ranking_update++);
 		    }
 		}
-	}
-  
-  
-	//Print Ranking (automatically load, update, save)
-	public void print_ranking(Rabbit p1, Tiger p2) {
-		load();
-		update_players(p1, p2);
-		sort_ranking(0, filedata.size()-1);
-		System.out.println("===============Ranking==============="); //37
-		System.out.println("Ranking        Player name        Win"); // 7 11 3
-		for(int i=0;i<10;i++) {
-			System.out.printf("%7d        %11s        %3d\n", filedata.get(i).getRanking(), filedata.get(i).getName(), filedata.get(i).getWin_number());
-			//System.out.println("  "+filedata.get(i).getRanking()+"위         "+filedata.get(i).getName()+"       "+filedata.get(i).getWin_number());
-		}
-		save();
 	}
 }

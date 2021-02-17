@@ -35,11 +35,12 @@ public class File1{
   	public int getWin_number() {
 		return win_number;
 	}
-
+  	public String getWin_number_str() {
+		return String.valueOf(win_number);
+	}
   	public void setWin_number(int win_number){
   		this.win_number=win_number;
   	}
-  
 	public void plusWin_number(){
 		win_number++;
 	}

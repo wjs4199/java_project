@@ -1,0 +1,4 @@
+Two-Player game. The Player with the higher total score wins. You can control aim with ArrowKeys from Keyboard. Good luck!
+
+* Rabbit => more affected by feelings swings and noise than tiger.
+* Tiger => less affected by feelings swings and noise than rabbit.
